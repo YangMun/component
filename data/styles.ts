@@ -113,6 +113,56 @@ export const styles: Style[] = [
       en: "Three-dimensional buttons and tactile materials that mimic real objects.",
     },
   },
+  {
+    id: "holographic",
+    icon: "🪩",
+    accent: "#c084fc",
+    title: { ko: "홀로그래픽", en: "Holographic" },
+    description: {
+      ko: "보는 각도에 따라 색이 바뀌는 듯한 무지갯빛 이리데센트 스타일입니다.",
+      en: "An iridescent style with a rainbow sheen that seems to shift with the angle.",
+    },
+  },
+  {
+    id: "paper",
+    icon: "📝",
+    accent: "#d97706",
+    title: { ko: "페이퍼 / 핸드드로잉", en: "Paper / Hand-drawn" },
+    description: {
+      ko: "손으로 그린 듯한 거친 테두리와 종이 질감의 아날로그 스타일입니다.",
+      en: "An analog style with hand-drawn wobbly borders and a paper texture.",
+    },
+  },
+  {
+    id: "outline",
+    icon: "✏️",
+    accent: "#0f172a",
+    title: { ko: "아웃라인 / 라인아트", en: "Outline / Line-art" },
+    description: {
+      ko: "얇은 단색 선으로만 표현하는 모노라인 아웃라인 스타일입니다.",
+      en: "A monoline style expressed purely with thin single-color strokes.",
+    },
+  },
+  {
+    id: "memphis",
+    icon: "🔺",
+    accent: "#f43f5e",
+    title: { ko: "멤피스", en: "Memphis" },
+    description: {
+      ko: "1980년대 감성의 기하학 도형과 발랄한 색·패턴이 어우러진 스타일입니다.",
+      en: "Playful 1980s geometry with bold shapes, colors and patterns.",
+    },
+  },
+  {
+    id: "duotone",
+    icon: "🎭",
+    accent: "#6366f1",
+    title: { ko: "듀오톤", en: "Duotone" },
+    description: {
+      ko: "두 가지 색의 강한 대비로 구성하는 절제되고 임팩트 있는 스타일입니다.",
+      en: "Built from two strongly contrasting colors for a bold, restrained look.",
+    },
+  },
 ];
 
 export function getStyle(id: string): Style | undefined {

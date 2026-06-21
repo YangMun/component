@@ -162,6 +162,52 @@ const alerts: ComponentEntry[] = [
 .alert-pixel span { font-size: 18px; }
 .alert-pixel p { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }`,
   },
+  {
+    id: "alerts-paper-alert",
+    slug: "paper-alert",
+    category: "alerts",
+    style: "paper",
+    title: { ko: "페이퍼 알림", en: "Paper Alert" },
+    description: {
+      ko: "손으로 그린 듯한 거친 테두리의 종이 메모 알림입니다.",
+      en: "A paper-note alert with a hand-drawn, sketchy border.",
+    },
+    tags: ["alert", "paper", "note", "sketch"],
+    previewBackground: "#fdf6e3",
+    html: `<div class="alert-paper" role="status">
+  <span aria-hidden="true">📌</span>
+  <p>메모: 회의는 오후 3시입니다.</p>
+</div>`,
+    css: `.alert-paper {
+  display: flex; align-items: center; gap: 10px; width: 280px; padding: 14px 16px;
+  color: #44403c; background: #fffdf7; border: 2px solid #44403c;
+  border-radius: 18px 6px 20px 6px / 6px 20px 6px 18px; box-shadow: 3px 3px 0 rgba(68,64,60,0.4);
+}
+.alert-paper p { margin: 0; font-size: 14px; }`,
+  },
+  {
+    id: "alerts-memphis-alert",
+    slug: "memphis-alert",
+    category: "alerts",
+    style: "memphis",
+    title: { ko: "멤피스 알림", en: "Memphis Alert" },
+    description: {
+      ko: "발랄한 색과 도형 패턴, 하드 섀도의 80년대 멤피스 알림입니다.",
+      en: "An 80s Memphis alert with playful color, a shape pattern and a hard shadow.",
+    },
+    tags: ["alert", "memphis", "playful", "멤피스"],
+    previewBackground: "#fef9c3",
+    html: `<div class="alert-memphis" role="status">
+  <strong>YO!</strong>
+  <p>새 메시지가 도착했어요.</p>
+</div>`,
+    css: `.alert-memphis {
+  width: 280px; padding: 14px 16px; color: #111; background: #fde047;
+  border: 3px solid #111; border-radius: 8px; box-shadow: 5px 5px 0 #f43f5e;
+}
+.alert-memphis strong { display: block; font-size: 15px; font-weight: 900; margin-bottom: 4px; }
+.alert-memphis p { margin: 0; font-size: 13px; font-weight: 600; }`,
+  },
 ];
 
 export default alerts;

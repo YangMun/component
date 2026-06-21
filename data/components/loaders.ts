@@ -254,6 +254,52 @@ const loaders: ComponentEntry[] = [
 .loader-pixel span:nth-child(5) { animation-delay: 0.8s; }
 @keyframes loader-pixel-blink { 0%, 100% { background: #1e293b; } 50% { background: #22c55e; box-shadow: 0 0 8px #22c55e; } }`,
   },
+  {
+    id: "loaders-duotone-spinner",
+    slug: "duotone-spinner",
+    category: "loaders",
+    style: "duotone",
+    title: { ko: "듀오톤 스피너", en: "Duotone Spinner" },
+    description: {
+      ko: "두 색이 교대로 회전하는 강한 대비의 듀오톤 스피너입니다.",
+      en: "A high-contrast duotone spinner whose two colors rotate in turn.",
+    },
+    tags: ["loader", "duotone", "spinner", "contrast"],
+    html: `<span class="loader-duotone" role="status" aria-label="로딩 중"></span>`,
+    css: `.loader-duotone {
+  display: inline-block; width: 46px; height: 46px; border-radius: 50%;
+  border: 5px solid #ec4899; border-top-color: #4f46e5; border-right-color: #4f46e5;
+  animation: loader-duotone-spin 0.8s linear infinite;
+}
+@keyframes loader-duotone-spin { to { transform: rotate(360deg); } }`,
+  },
+  {
+    id: "loaders-skeleton",
+    slug: "skeleton",
+    category: "loaders",
+    style: "minimal",
+    title: { ko: "스켈레톤", en: "Skeleton" },
+    description: {
+      ko: "콘텐츠 로딩 중에 보여 주는 반짝이는 스켈레톤 플레이스홀더입니다.",
+      en: "A shimmering skeleton placeholder shown while content loads.",
+    },
+    tags: ["loader", "skeleton", "placeholder", "shimmer"],
+    featured: true,
+    html: `<div class="loader-skel">
+  <div class="loader-skel__avatar"></div>
+  <div class="loader-skel__lines"><span></span><span></span></div>
+</div>`,
+    css: `.loader-skel { display: flex; align-items: center; gap: 14px; width: 240px; }
+.loader-skel__avatar { width: 48px; height: 48px; border-radius: 50%; flex: none; }
+.loader-skel__lines { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.loader-skel__lines span { height: 12px; border-radius: 6px; }
+.loader-skel__lines span:last-child { width: 60%; }
+.loader-skel__avatar, .loader-skel__lines span {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 37%, #e2e8f0 63%);
+  background-size: 400% 100%; animation: loader-skel-shimmer 1.4s ease infinite;
+}
+@keyframes loader-skel-shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }`,
+  },
 ];
 
 export default loaders;

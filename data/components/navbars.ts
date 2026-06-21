@@ -159,6 +159,31 @@ const navbars: ComponentEntry[] = [
 .nav-pixel__logo { font-weight: 700; color: #fde047; letter-spacing: 0.06em; }
 .nav-pixel__stats { font-size: 13px; color: #22c55e; }`,
   },
+  {
+    id: "navbars-memphis-nav",
+    slug: "memphis-nav",
+    category: "navbars",
+    style: "memphis",
+    title: { ko: "멤피스 내비바", en: "Memphis Navbar" },
+    description: {
+      ko: "발랄한 색과 하드 섀도의 80년대 멤피스 상단 내비게이션 바입니다.",
+      en: "An 80s Memphis top navigation bar with playful color and a hard shadow.",
+    },
+    tags: ["navbar", "memphis", "playful", "멤피스"],
+    previewBackground: "#fef9c3",
+    html: `<nav class="nav-memphis">
+  <span class="nav-memphis__logo">▲ POP</span>
+  <span class="nav-memphis__links"><a>홈</a><a>샵</a></span>
+</nav>`,
+    css: `.nav-memphis {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; width: 320px;
+  padding: 12px 18px; background: #22d3ee; border: 3px solid #111; border-radius: 8px; box-shadow: 5px 5px 0 #111;
+}
+.nav-memphis__logo { font-weight: 900; color: #111; letter-spacing: 0.04em; }
+.nav-memphis__links { display: flex; gap: 14px; font-size: 14px; font-weight: 800; }
+.nav-memphis__links a { color: #111; cursor: pointer; text-decoration: none; }
+.nav-memphis__links a:hover { color: #f43f5e; }`,
+  },
 ];
 
 export default navbars;

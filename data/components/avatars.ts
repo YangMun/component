@@ -163,6 +163,64 @@ const avatars: ComponentEntry[] = [
   image-rendering: pixelated;
 }`,
   },
+  {
+    id: "avatars-holographic-ring",
+    slug: "holographic-ring",
+    category: "avatars",
+    style: "holographic",
+    title: { ko: "홀로그래픽 링", en: "Holographic Ring" },
+    description: {
+      ko: "무지갯빛이 흐르는 홀로그램 테두리의 아바타입니다.",
+      en: "An avatar wrapped in a flowing holographic rainbow ring.",
+    },
+    tags: ["avatar", "holographic", "ring", "홀로그램"],
+    previewBackground: "#0b1020",
+    html: `<span class="ava-holo"><span class="ava-holo__img">H</span></span>`,
+    css: `.ava-holo {
+  display: inline-block; padding: 3px; border-radius: 50%;
+  background: linear-gradient(115deg, #a78bfa, #f0abfc, #7dd3fc, #6ee7b7, #fda4af, #a78bfa);
+  background-size: 300% 100%; animation: ava-holo 4s linear infinite;
+}
+.ava-holo__img { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #1e1b4b; color: #fff; font-weight: 800; font-size: 22px; }
+@keyframes ava-holo { to { background-position: 300% 0; } }`,
+  },
+  {
+    id: "avatars-outline-avatar",
+    slug: "outline-avatar",
+    category: "avatars",
+    style: "outline",
+    title: { ko: "아웃라인 아바타", en: "Outline Avatar" },
+    description: {
+      ko: "얇은 단색 선 테두리의 라인아트 아바타입니다.",
+      en: "A line-art avatar with a thin stroke ring.",
+    },
+    tags: ["avatar", "outline", "line", "minimal"],
+    html: `<span class="ava-outline">OL</span>`,
+    css: `.ava-outline {
+  display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%;
+  border: 1.5px solid #0f172a; background: transparent; color: #0f172a; font-weight: 700; font-size: 18px;
+}`,
+  },
+  {
+    id: "avatars-memphis-avatar",
+    slug: "memphis-avatar",
+    category: "avatars",
+    style: "memphis",
+    title: { ko: "멤피스 아바타", en: "Memphis Avatar" },
+    description: {
+      ko: "발랄한 색과 하드 섀도, 도형 장식의 80년대 멤피스 아바타입니다.",
+      en: "An 80s Memphis avatar with playful color, a hard shadow and a shape accent.",
+    },
+    tags: ["avatar", "memphis", "playful", "멤피스"],
+    previewBackground: "#fef9c3",
+    html: `<span class="ava-memphis">M</span>`,
+    css: `.ava-memphis {
+  position: relative; display: grid; place-items: center; width: 60px; height: 60px;
+  border: 3px solid #111; border-radius: 14px; background: #f43f5e; color: #fff; font-weight: 900; font-size: 22px;
+  box-shadow: 4px 4px 0 #111;
+}
+.ava-memphis::after { content: ""; position: absolute; bottom: -7px; right: -7px; width: 18px; height: 18px; background: #22d3ee; border: 2px solid #111; }`,
+  },
 ];
 
 export default avatars;

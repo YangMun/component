@@ -195,6 +195,64 @@ const progress: ComponentEntry[] = [
     repeating-linear-gradient(90deg, #22c55e 0, #22c55e 10px, #16a34a 10px, #16a34a 14px);
 }`,
   },
+  {
+    id: "progress-holographic-bar",
+    slug: "holographic-bar",
+    category: "progress",
+    style: "holographic",
+    title: { ko: "홀로그래픽 바", en: "Holographic Bar" },
+    description: {
+      ko: "무지갯빛 홀로그램이 흐르며 채워지는 진행 표시 바입니다.",
+      en: "A progress bar that fills with a flowing holographic rainbow.",
+    },
+    tags: ["progress", "holographic", "iridescent", "bar"],
+    previewBackground: "#0b1020",
+    html: `<div class="prog-holo" role="progressbar" aria-valuenow="75"><div class="prog-holo__fill"></div></div>`,
+    css: `.prog-holo { width: 280px; height: 14px; border-radius: 9999px; background: #312e57; overflow: hidden; }
+.prog-holo__fill {
+  width: 75%; height: 100%; border-radius: 9999px;
+  background: linear-gradient(115deg, #a78bfa, #f0abfc, #7dd3fc, #6ee7b7, #fda4af, #a78bfa);
+  background-size: 300% 100%; animation: prog-holo 3s linear infinite;
+}
+@keyframes prog-holo { to { background-position: 300% 0; } }`,
+  },
+  {
+    id: "progress-duotone-bar",
+    slug: "duotone-bar",
+    category: "progress",
+    style: "duotone",
+    title: { ko: "듀오톤 바", en: "Duotone Bar" },
+    description: {
+      ko: "두 색의 강한 대비로 채워지는 듀오톤 진행 바입니다.",
+      en: "A duotone progress bar filled with two strongly contrasting colors.",
+    },
+    tags: ["progress", "duotone", "contrast", "bar"],
+    html: `<div class="prog-duotone" role="progressbar" aria-valuenow="60"><div class="prog-duotone__fill"></div></div>`,
+    css: `.prog-duotone { width: 280px; height: 14px; border-radius: 9999px; background: #ec4899; overflow: hidden; }
+.prog-duotone__fill { width: 60%; height: 100%; background: #4f46e5; }`,
+  },
+  {
+    id: "progress-circular-ring",
+    slug: "circular-ring",
+    category: "progress",
+    style: "gradient",
+    title: { ko: "원형 링", en: "Circular Ring" },
+    description: {
+      ko: "퍼센트를 가운데 표시하는 원형 그라데이션 진행 링입니다.",
+      en: "A circular gradient progress ring with the percentage in the center.",
+    },
+    tags: ["progress", "circular", "ring", "gradient"],
+    featured: true,
+    html: `<div class="prog-ring"><span>72%</span></div>`,
+    css: `.prog-ring {
+  width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(#7c3aed 0 72%, #e9d5ff 72% 100%);
+}
+.prog-ring span {
+  display: grid; place-items: center; width: 74px; height: 74px; border-radius: 50%;
+  background: #fff; font-size: 18px; font-weight: 800; color: #7c3aed;
+}`,
+  },
 ];
 
 export default progress;

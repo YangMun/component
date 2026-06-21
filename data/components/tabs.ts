@@ -155,6 +155,49 @@ const tabs: ComponentEntry[] = [
 .tabs-threed span { display: block; padding: 9px 20px; border-radius: 10px; font-size: 14px; font-weight: 700; color: #64748b; transition: all 0.15s ease; }
 .tabs-threed input:checked + span { color: #fff; background: #6366f1; box-shadow: 0 4px 0 #4338ca, 0 6px 10px rgba(0,0,0,0.2); transform: translateY(-2px); }`,
   },
+  {
+    id: "tabs-outline-tabs",
+    slug: "outline-tabs",
+    category: "tabs",
+    style: "outline",
+    title: { ko: "아웃라인 탭", en: "Outline Tabs" },
+    description: {
+      ko: "선택 시 테두리가 그려지는 라인아트 세그먼트 탭입니다.",
+      en: "Line-art segmented tabs where the active item gets a drawn outline.",
+    },
+    tags: ["tabs", "outline", "line", "segment"],
+    html: `<div class="tabs-outline">
+  <label><input type="radio" name="to" checked /><span>요약</span></label>
+  <label><input type="radio" name="to" /><span>상세</span></label>
+  <label><input type="radio" name="to" /><span>활동</span></label>
+</div>`,
+    css: `.tabs-outline { display: inline-flex; gap: 8px; }
+.tabs-outline label { cursor: pointer; }
+.tabs-outline input { display: none; }
+.tabs-outline span { display: block; padding: 8px 18px; border: 1.5px solid transparent; border-radius: 9999px; font-size: 14px; font-weight: 600; color: #94a3b8; transition: all 0.2s ease; }
+.tabs-outline input:checked + span { color: #0f172a; border-color: #0f172a; }`,
+  },
+  {
+    id: "tabs-duotone-tabs",
+    slug: "duotone-tabs",
+    category: "tabs",
+    style: "duotone",
+    title: { ko: "듀오톤 탭", en: "Duotone Tabs" },
+    description: {
+      ko: "두 색의 강한 대비로 선택을 표시하는 듀오톤 세그먼트 탭입니다.",
+      en: "Duotone segmented tabs that mark the active item with two contrasting colors.",
+    },
+    tags: ["tabs", "duotone", "contrast", "segment"],
+    html: `<div class="tabs-duotone">
+  <label><input type="radio" name="td" checked /><span>왼쪽</span></label>
+  <label><input type="radio" name="td" /><span>오른쪽</span></label>
+</div>`,
+    css: `.tabs-duotone { display: inline-flex; padding: 4px; border-radius: 10px; background: #ec4899; }
+.tabs-duotone label { cursor: pointer; }
+.tabs-duotone input { display: none; }
+.tabs-duotone span { display: block; padding: 9px 22px; border-radius: 8px; font-size: 14px; font-weight: 700; color: #fff; transition: all 0.2s ease; }
+.tabs-duotone input:checked + span { color: #fff; background: #4338ca; }`,
+  },
 ];
 
 export default tabs;
