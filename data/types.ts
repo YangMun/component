@@ -12,6 +12,8 @@ export type ComponentEntry = {
   slug: string;
   /** Category id, must exist in data/categories.ts. */
   category: string;
+  /** Design-style id (design trend/concept), must exist in data/styles.ts. */
+  style: string;
   title: Localized;
   description: Localized;
   /** Free-form tags for search/SEO. */
@@ -33,4 +35,15 @@ export type Category = {
   description: Localized;
   /** Emoji or short glyph used as a lightweight icon. */
   icon: string;
+};
+
+export type Style = {
+  /** URL-safe id used in routes: /[locale]/styles/[id]. */
+  id: string;
+  title: Localized;
+  description: Localized;
+  /** Emoji or short glyph used as a lightweight icon. */
+  icon: string;
+  /** Accent color (hex) used for style chips/cards. */
+  accent: string;
 };

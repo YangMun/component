@@ -14,6 +14,7 @@ export default function Footer({
 
   const explore = [
     { href: localeHref(locale, "/components"), label: dict.nav.components },
+    { href: localeHref(locale, "/styles"), label: dict.nav.styles },
     { href: localeHref(locale, "/about"), label: dict.nav.about },
     { href: localeHref(locale, "/contact"), label: dict.nav.contact },
   ];

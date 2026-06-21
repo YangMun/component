@@ -11,6 +11,7 @@ const en: Dictionary = {
   nav: {
     home: "Home",
     components: "Components",
+    styles: "Styles",
     about: "About",
     privacy: "Privacy Policy",
     terms: "Terms",
@@ -55,11 +56,16 @@ const en: Dictionary = {
     ],
     featuredTitle: "Featured components",
     browseByCategory: "Browse by category",
+    browseByStyle: "Browse by design style",
   },
   gallery: {
     title: "Components",
     subtitle: "Pick a category or browse every component below.",
     allCategories: "All categories",
+    allStyles: "All styles",
+    styleTitle: "Design styles",
+    styleSubtitle:
+      "Browse components by the latest design trends — glassmorphism, neumorphism, neon and more.",
     itemsCount: "{count} components",
     empty: "No components have been added yet.",
     preview: "Preview",

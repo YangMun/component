@@ -10,6 +10,7 @@ const ko = {
   nav: {
     home: "홈",
     components: "컴포넌트",
+    styles: "스타일",
     about: "소개",
     privacy: "개인정보처리방침",
     terms: "이용약관",
@@ -54,11 +55,16 @@ const ko = {
     ],
     featuredTitle: "추천 컴포넌트",
     browseByCategory: "카테고리별로 보기",
+    browseByStyle: "디자인 스타일별로 보기",
   },
   gallery: {
     title: "컴포넌트",
     subtitle: "카테고리를 선택하거나 아래에서 전체 컴포넌트를 둘러보세요.",
     allCategories: "전체 카테고리",
+    allStyles: "전체 스타일",
+    styleTitle: "디자인 스타일",
+    styleSubtitle:
+      "글래스모피즘, 뉴모피즘, 네온 등 최신 디자인 트렌드별로 컴포넌트를 둘러보세요.",
     // "{count}" is replaced at render time (see formatCount in lib/utils).
     itemsCount: "{count}개 컴포넌트",
     empty: "아직 등록된 컴포넌트가 없습니다.",

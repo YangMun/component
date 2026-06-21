@@ -1,41 +1,42 @@
 import type { ComponentEntry } from "@/data/types";
 
-// Buttons
-import gradientGlow from "./buttons/gradient-glow";
-import solidPress from "./buttons/solid-press";
-import neonOutline from "./buttons/neon-outline";
-import shineSweep from "./buttons/shine-sweep";
-import pillArrow from "./buttons/pill-arrow";
-import soft3d from "./buttons/soft-3d";
-// Cards
-import hoverLift from "./cards/hover-lift";
-import gradientBorder from "./cards/gradient-border";
-// Inputs
-import floatingLabel from "./inputs/floating-label";
-import underlineFocus from "./inputs/underline-focus";
-// Loaders
-import dualRing from "./loaders/dual-ring";
-import bouncingDots from "./loaders/bouncing-dots";
+// Each category is one array module. To add a component, append an entry to the
+// matching category file; to add a category, create its file and import it here.
+import buttons from "./buttons";
+import cards from "./cards";
+import inputs from "./inputs";
+import loaders from "./loaders";
+import toggles from "./toggles";
+import badges from "./badges";
+import tooltips from "./tooltips";
+import avatars from "./avatars";
+import alerts from "./alerts";
+import progress from "./progress";
+import tabs from "./tabs";
+import navbars from "./navbars";
 
 // The single registry of every component on the site.
-// To add a component: create its file, import it here, and append to this array.
 export const components: ComponentEntry[] = [
-  gradientGlow,
-  solidPress,
-  neonOutline,
-  shineSweep,
-  pillArrow,
-  soft3d,
-  hoverLift,
-  gradientBorder,
-  floatingLabel,
-  underlineFocus,
-  dualRing,
-  bouncingDots,
+  ...buttons,
+  ...cards,
+  ...inputs,
+  ...loaders,
+  ...toggles,
+  ...badges,
+  ...tooltips,
+  ...avatars,
+  ...alerts,
+  ...progress,
+  ...tabs,
+  ...navbars,
 ];
 
 export function getComponentsByCategory(categoryId: string): ComponentEntry[] {
   return components.filter((c) => c.category === categoryId);
+}
+
+export function getComponentsByStyle(styleId: string): ComponentEntry[] {
+  return components.filter((c) => c.style === styleId);
 }
 
 export function getFeaturedComponents(limit = 6): ComponentEntry[] {
@@ -44,4 +45,8 @@ export function getFeaturedComponents(limit = 6): ComponentEntry[] {
 
 export function getComponentCount(categoryId: string): number {
   return getComponentsByCategory(categoryId).length;
+}
+
+export function getStyleCount(styleId: string): number {
+  return getComponentsByStyle(styleId).length;
 }
