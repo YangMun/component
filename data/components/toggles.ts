@@ -178,6 +178,31 @@ const toggles: ComponentEntry[] = [
 .sw-clay input:checked + .sw-clay__track { background: #a78bfa; }
 .sw-clay input:checked + .sw-clay__track .sw-clay__thumb { left: 34px; }`,
   },
+  {
+    id: "toggles-pixel-switch",
+    slug: "pixel-switch",
+    category: "toggles",
+    style: "pixel",
+    title: { ko: "픽셀 스위치", en: "Pixel Switch" },
+    description: {
+      ko: "각진 픽셀 블록이 칸을 옮겨가는 8비트 게임 스타일 토글입니다.",
+      en: "An 8-bit toggle where a blocky pixel handle jumps between slots.",
+    },
+    tags: ["toggle", "pixel", "8bit", "switch"],
+    previewBackground: "#0d0d18",
+    html: `<label class="sw-pixel">
+  <input type="checkbox" checked />
+  <span class="sw-pixel__track"><span class="sw-pixel__thumb"></span></span>
+</label>`,
+    css: `.sw-pixel { display: inline-block; cursor: pointer; }
+.sw-pixel input { display: none; }
+.sw-pixel__track {
+  display: block; width: 64px; height: 32px; background: #1b1b2f; border: 3px solid #e2e8f0;
+  position: relative; image-rendering: pixelated; box-shadow: 4px 4px 0 #0d0d18;
+}
+.sw-pixel__thumb { position: absolute; top: 3px; left: 3px; width: 23px; height: 23px; background: #64748b; transition: left 0.1s steps(2); }
+.sw-pixel input:checked + .sw-pixel__track .sw-pixel__thumb { left: 32px; background: #22c55e; box-shadow: 0 0 8px #22c55e; }`,
+  },
 ];
 
 export default toggles;

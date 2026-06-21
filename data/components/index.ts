@@ -14,6 +14,12 @@ import alerts from "./alerts";
 import progress from "./progress";
 import tabs from "./tabs";
 import navbars from "./navbars";
+import modals from "./modals";
+import dropdowns from "./dropdowns";
+import accordions from "./accordions";
+import sliders from "./sliders";
+import breadcrumbs from "./breadcrumbs";
+import steppers from "./steppers";
 
 // The single registry of every component on the site.
 export const components: ComponentEntry[] = [
@@ -29,6 +35,12 @@ export const components: ComponentEntry[] = [
   ...progress,
   ...tabs,
   ...navbars,
+  ...modals,
+  ...dropdowns,
+  ...accordions,
+  ...sliders,
+  ...breadcrumbs,
+  ...steppers,
 ];
 
 export function getComponentsByCategory(categoryId: string): ComponentEntry[] {

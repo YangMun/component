@@ -201,6 +201,27 @@ const inputs: ComponentEntry[] = [
 .field-retro::placeholder { color: #4b5fa3; }
 .field-retro:focus { caret-color: #f0f; }`,
   },
+  {
+    id: "inputs-pixel-input",
+    slug: "pixel-input",
+    category: "inputs",
+    style: "pixel",
+    title: { ko: "픽셀 인풋", en: "Pixel Input" },
+    description: {
+      ko: "각진 픽셀 테두리와 모노스페이스 글꼴의 8비트 입력창입니다.",
+      en: "An 8-bit input with a blocky pixel border and monospace type.",
+    },
+    tags: ["input", "pixel", "8bit", "form"],
+    previewBackground: "#0d0d18",
+    html: `<input class="field-pixel" type="text" placeholder="ENTER NAME_" />`,
+    css: `.field-pixel {
+  width: 240px; padding: 13px 14px; font-family: ui-monospace, "Courier New", monospace;
+  font-size: 14px; letter-spacing: 0.06em; color: #22c55e; background: #1b1b2f;
+  border: 3px solid #22c55e; outline: none; box-shadow: 4px 4px 0 #0d0d18; image-rendering: pixelated;
+}
+.field-pixel::placeholder { color: #4b5563; }
+.field-pixel:focus { border-color: #fde047; color: #fde047; box-shadow: 4px 4px 0 #0d0d18, 0 0 0 1px #fde047; }`,
+  },
 ];
 
 export default inputs;

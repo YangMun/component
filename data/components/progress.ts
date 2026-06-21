@@ -171,6 +171,30 @@ const progress: ComponentEntry[] = [
 }
 .prog-retro span.on { background: #22d3ee; box-shadow: 0 0 8px rgba(34,211,238,0.8); }`,
   },
+  {
+    id: "progress-pixel-bar",
+    slug: "pixel-bar",
+    category: "progress",
+    style: "pixel",
+    title: { ko: "픽셀 바", en: "Pixel Bar" },
+    description: {
+      ko: "각진 픽셀 블록으로 채워지는 8비트 게임 스타일 진행 바입니다.",
+      en: "An 8-bit progress bar that fills with blocky pixel cells.",
+    },
+    tags: ["progress", "pixel", "8bit", "bar"],
+    previewBackground: "#0d0d18",
+    html: `<div class="prog-pixel" role="progressbar" aria-valuenow="70">
+  <div class="prog-pixel__fill"></div>
+</div>`,
+    css: `.prog-pixel {
+  width: 280px; height: 22px; padding: 3px; background: #1b1b2f; border: 3px solid #e2e8f0;
+  image-rendering: pixelated; box-shadow: 4px 4px 0 #0d0d18;
+}
+.prog-pixel__fill {
+  width: 70%; height: 100%; background:
+    repeating-linear-gradient(90deg, #22c55e 0, #22c55e 10px, #16a34a 10px, #16a34a 14px);
+}`,
+  },
 ];
 
 export default progress;

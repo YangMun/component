@@ -228,6 +228,32 @@ const loaders: ComponentEntry[] = [
   100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); }
 }`,
   },
+  {
+    id: "loaders-pixel-blocks",
+    slug: "pixel-blocks",
+    category: "loaders",
+    style: "pixel",
+    title: { ko: "픽셀 블록", en: "Pixel Blocks" },
+    description: {
+      ko: "픽셀 블록이 차례로 켜지는 8비트 게임 스타일 로더입니다.",
+      en: "An 8-bit loader where pixel blocks light up in sequence.",
+    },
+    tags: ["loader", "pixel", "8bit", "loading"],
+    previewBackground: "#0d0d18",
+    html: `<span class="loader-pixel" role="status" aria-label="로딩 중">
+  <span></span><span></span><span></span><span></span><span></span>
+</span>`,
+    css: `.loader-pixel { display: inline-flex; gap: 4px; }
+.loader-pixel span {
+  width: 12px; height: 12px; background: #1e293b; image-rendering: pixelated;
+  animation: loader-pixel-blink 1s steps(1) infinite;
+}
+.loader-pixel span:nth-child(2) { animation-delay: 0.2s; }
+.loader-pixel span:nth-child(3) { animation-delay: 0.4s; }
+.loader-pixel span:nth-child(4) { animation-delay: 0.6s; }
+.loader-pixel span:nth-child(5) { animation-delay: 0.8s; }
+@keyframes loader-pixel-blink { 0%, 100% { background: #1e293b; } 50% { background: #22c55e; box-shadow: 0 0 8px #22c55e; } }`,
+  },
 ];
 
 export default loaders;

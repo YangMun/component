@@ -384,6 +384,28 @@ const buttons: ComponentEntry[] = [
 }
 @keyframes aurora-flow { to { background-position: 300% 0; } }`,
   },
+  {
+    id: "buttons-pixel-start",
+    slug: "pixel-start",
+    category: "buttons",
+    style: "pixel",
+    title: { ko: "픽셀 스타트", en: "Pixel Start" },
+    description: {
+      ko: "각진 픽셀 테두리와 모노스페이스 글꼴의 8비트 게임 버튼입니다.",
+      en: "An 8-bit game button with a blocky pixel border and monospace type.",
+    },
+    tags: ["pixel", "8bit", "game", "button"],
+    featured: true,
+    previewBackground: "#0d0d18",
+    html: `<button class="btn-pixel">START</button>`,
+    css: `.btn-pixel {
+  padding: 12px 26px; font-family: ui-monospace, "Courier New", monospace;
+  font-size: 15px; font-weight: 700; letter-spacing: 0.08em; color: #0d0d18;
+  background: #22c55e; border: 3px solid #0d0d18; cursor: pointer; image-rendering: pixelated;
+  box-shadow: 0 4px 0 #15803d, 0 4px 0 3px #0d0d18, 5px 8px 0 3px rgba(0,0,0,0.4);
+}
+.btn-pixel:active { transform: translateY(4px); box-shadow: 0 0 0 #15803d, 0 0 0 3px #0d0d18; }`,
+  },
 ];
 
 export default buttons;

@@ -84,6 +84,16 @@ export const styles: Style[] = [
     },
   },
   {
+    id: "pixel",
+    icon: "👾",
+    accent: "#22c55e",
+    title: { ko: "픽셀 / 8비트", en: "Pixel / 8-bit" },
+    description: {
+      ko: "각진 픽셀 테두리와 모노스페이스 글꼴로 레트로 게임 감성을 살린 스타일입니다.",
+      en: "Blocky pixel borders and monospace type for a retro 8-bit game feel.",
+    },
+  },
+  {
     id: "material",
     icon: "📐",
     accent: "#2563eb",

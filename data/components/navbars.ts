@@ -135,6 +135,30 @@ const navbars: ComponentEntry[] = [
   opacity: 1; filter: none; text-shadow: 0 0 12px rgba(34,211,238,0.9); transform: translateY(-2px);
 }`,
   },
+  {
+    id: "navbars-pixel-hud",
+    slug: "pixel-hud",
+    category: "navbars",
+    style: "pixel",
+    title: { ko: "픽셀 HUD", en: "Pixel HUD" },
+    description: {
+      ko: "각진 픽셀 테두리의 8비트 게임 HUD 스타일 상단 바입니다.",
+      en: "An 8-bit game HUD-style top bar with a blocky pixel border.",
+    },
+    tags: ["navbar", "pixel", "8bit", "hud"],
+    previewBackground: "#0d0d18",
+    html: `<nav class="nav-pixel">
+  <span class="nav-pixel__logo">★ HERO</span>
+  <span class="nav-pixel__stats">♥×3　◆×12</span>
+</nav>`,
+    css: `.nav-pixel {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 320px;
+  padding: 12px 16px; font-family: ui-monospace, "Courier New", monospace; color: #e2e8f0;
+  background: #1b1b2f; border: 3px solid #e2e8f0; box-shadow: 5px 5px 0 #0d0d18; image-rendering: pixelated;
+}
+.nav-pixel__logo { font-weight: 700; color: #fde047; letter-spacing: 0.06em; }
+.nav-pixel__stats { font-size: 13px; color: #22c55e; }`,
+  },
 ];
 
 export default navbars;

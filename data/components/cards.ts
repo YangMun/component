@@ -315,6 +315,33 @@ const cards: ComponentEntry[] = [
 .card-threed-flip__front { background: #6366f1; }
 .card-threed-flip__back { background: #ec4899; transform: rotateY(180deg); }`,
   },
+  {
+    id: "cards-pixel-quest",
+    slug: "pixel-quest",
+    category: "cards",
+    style: "pixel",
+    title: { ko: "픽셀 퀘스트", en: "Pixel Quest" },
+    description: {
+      ko: "각진 픽셀 테두리와 체력 바가 있는 레트로 게임 카드입니다.",
+      en: "A retro 8-bit game card with a blocky pixel border and an HP bar.",
+    },
+    tags: ["card", "pixel", "8bit", "game"],
+    previewBackground: "#0d0d18",
+    html: `<article class="card-pixel">
+  <h3>SLIME</h3>
+  <div class="card-pixel__hp"><span></span></div>
+  <p>HP 70 / 100</p>
+</article>`,
+    css: `.card-pixel {
+  width: 220px; padding: 18px; font-family: ui-monospace, "Courier New", monospace;
+  color: #e2e8f0; background: #1b1b2f; border: 4px solid #e2e8f0;
+  box-shadow: 0 0 0 4px #0d0d18, 6px 6px 0 4px rgba(34,197,94,0.5);
+}
+.card-pixel h3 { margin: 0 0 12px; font-size: 16px; color: #fde047; letter-spacing: 0.08em; }
+.card-pixel__hp { height: 14px; background: #0d0d18; border: 2px solid #e2e8f0; padding: 2px; }
+.card-pixel__hp span { display: block; width: 70%; height: 100%; background: #22c55e; }
+.card-pixel p { margin: 10px 0 0; font-size: 12px; color: #94a3b8; }`,
+  },
 ];
 
 export default cards;
