@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens. Light theme by default; .dark overrides on <html>. */
+:root {
+  --bg: 248 250 252; /* slate-50 */
+  --surface: 255 255 255;
+  --border: 226 232 240; /* slate-200 */
+  --fg: 15 23 42; /* slate-900 */
+  --muted: 100 116 139; /* slate-500 */
+  --brand: 124 58 237; /* violet-600 */
+  --brand-fg: 255 255 255;
+  --font-sans: ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Pretendard",
+    "Malgun Gothic", sans-serif;
+}
+
+.dark {
+  --bg: 2 6 23; /* slate-950 */
+  --surface: 15 23 42; /* slate-900 */
+  --border: 30 41 59; /* slate-800 */
+  --fg: 226 232 240; /* slate-200 */
+  --muted: 148 163 184; /* slate-400 */
+  --brand: 167 139 250; /* violet-400 */
+  --brand-fg: 15 23 42;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus visibility for keyboard users. */
+:focus-visible {
+  outline: 2px solid rgb(var(--brand));
+  outline-offset: 2px;
+}
