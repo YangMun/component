@@ -111,6 +111,60 @@ export const categories: Category[] = [
       en: "Top and bottom navigation bars that help users move around a site.",
     },
   },
+  {
+    id: "modals",
+    icon: "🪟",
+    title: { ko: "모달", en: "Modals" },
+    description: {
+      ko: "확인·안내 등 집중이 필요한 작업을 위한 모달과 다이얼로그입니다.",
+      en: "Modals and dialogs for focused tasks like confirmation and prompts.",
+    },
+  },
+  {
+    id: "dropdowns",
+    icon: "🔽",
+    title: { ko: "드롭다운", en: "Dropdowns" },
+    description: {
+      ko: "메뉴·옵션을 펼쳐 보여 주는 드롭다운 컴포넌트입니다.",
+      en: "Dropdown menus that reveal a list of actions or options.",
+    },
+  },
+  {
+    id: "accordions",
+    icon: "📚",
+    title: { ko: "아코디언", en: "Accordions" },
+    description: {
+      ko: "클릭하면 펼쳐지는 아코디언·FAQ 컴포넌트입니다(자바스크립트 불필요).",
+      en: "Click-to-expand accordion and FAQ components (no JavaScript needed).",
+    },
+  },
+  {
+    id: "sliders",
+    icon: "🎛️",
+    title: { ko: "슬라이더", en: "Sliders" },
+    description: {
+      ko: "값을 조절하는 범위 입력 슬라이더 컴포넌트입니다.",
+      en: "Range slider components for adjusting a value.",
+    },
+  },
+  {
+    id: "breadcrumbs",
+    icon: "🧀",
+    title: { ko: "브레드크럼", en: "Breadcrumbs" },
+    description: {
+      ko: "현재 위치와 경로를 보여 주는 브레드크럼 내비게이션입니다.",
+      en: "Breadcrumb navigation that shows the current location and path.",
+    },
+  },
+  {
+    id: "steppers",
+    icon: "🪜",
+    title: { ko: "스텝", en: "Steppers" },
+    description: {
+      ko: "다단계 절차의 진행 단계를 보여 주는 스텝 컴포넌트입니다.",
+      en: "Stepper components that show progress through a multi-step flow.",
+    },
+  },
 ];
 
 export function getCategory(id: string): Category | undefined {

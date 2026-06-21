@@ -143,6 +143,26 @@ const avatars: ComponentEntry[] = [
   box-shadow: 0 6px 0 #b45309, 0 10px 14px rgba(0,0,0,0.25), inset 0 2px 4px rgba(255,255,255,0.6);
 }`,
   },
+  {
+    id: "avatars-pixel-hero",
+    slug: "pixel-hero",
+    category: "avatars",
+    style: "pixel",
+    title: { ko: "픽셀 히어로", en: "Pixel Hero" },
+    description: {
+      ko: "각진 픽셀 테두리의 8비트 게임 캐릭터 아바타입니다.",
+      en: "An 8-bit game character avatar with a blocky pixel border.",
+    },
+    tags: ["avatar", "pixel", "8bit", "game"],
+    previewBackground: "#0d0d18",
+    html: `<span class="ava-pixel">P1</span>`,
+    css: `.ava-pixel {
+  display: grid; place-items: center; width: 58px; height: 58px;
+  font-family: ui-monospace, "Courier New", monospace; font-weight: 700; font-size: 18px; color: #0d0d18;
+  background: #22c55e; border: 4px solid #e2e8f0; box-shadow: 0 0 0 4px #0d0d18, 4px 4px 0 4px rgba(34,197,94,0.4);
+  image-rendering: pixelated;
+}`,
+  },
 ];
 
 export default avatars;

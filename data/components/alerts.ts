@@ -138,6 +138,30 @@ const alerts: ComponentEntry[] = [
 }
 .alert-gradient p { margin: 0; font-size: 14px; font-weight: 600; }`,
   },
+  {
+    id: "alerts-pixel-alert",
+    slug: "pixel-alert",
+    category: "alerts",
+    style: "pixel",
+    title: { ko: "픽셀 알림", en: "Pixel Alert" },
+    description: {
+      ko: "각진 픽셀 테두리의 8비트 게임 스타일 알림입니다.",
+      en: "An 8-bit game alert with a blocky pixel border.",
+    },
+    tags: ["alert", "pixel", "8bit", "game"],
+    previewBackground: "#0d0d18",
+    html: `<div class="alert-pixel" role="alert">
+  <span aria-hidden="true">★</span>
+  <p>NEW ITEM GET!</p>
+</div>`,
+    css: `.alert-pixel {
+  display: flex; align-items: center; gap: 10px; width: 280px; padding: 14px 16px;
+  font-family: ui-monospace, "Courier New", monospace; color: #fde047; background: #1b1b2f;
+  border: 3px solid #fde047; box-shadow: 5px 5px 0 #0d0d18; image-rendering: pixelated;
+}
+.alert-pixel span { font-size: 18px; }
+.alert-pixel p { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }`,
+  },
 ];
 
 export default alerts;

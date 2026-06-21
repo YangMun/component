@@ -137,6 +137,25 @@ const badges: ComponentEntry[] = [
   box-shadow: 0 0 0 3px #fde047, 4px 4px 0 rgba(244,114,182,0.9);
 }`,
   },
+  {
+    id: "badges-pixel-tag",
+    slug: "pixel-tag",
+    category: "badges",
+    style: "pixel",
+    title: { ko: "픽셀 태그", en: "Pixel Tag" },
+    description: {
+      ko: "각진 픽셀 테두리의 8비트 게임 스타일 태그입니다.",
+      en: "An 8-bit game tag with a blocky pixel border.",
+    },
+    tags: ["badge", "pixel", "8bit", "tag"],
+    previewBackground: "#0d0d18",
+    html: `<span class="badge-pixel">LV.99</span>`,
+    css: `.badge-pixel {
+  display: inline-block; padding: 6px 12px; font-family: ui-monospace, "Courier New", monospace;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #0d0d18; background: #fde047;
+  border: 2px solid #0d0d18; box-shadow: 3px 3px 0 #22c55e; image-rendering: pixelated;
+}`,
+  },
 ];
 
 export default badges;
