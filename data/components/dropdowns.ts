@@ -114,6 +114,44 @@ const dropdowns: ComponentEntry[] = [
 }
 .dd-neumorph a:hover { color: #7c3aed; box-shadow: inset 3px 3px 6px #b8bcc4, inset -3px -3px 6px #ffffff; }`,
   },
+  {
+    id: "dropdowns-click-menu",
+    slug: "click-menu",
+    category: "dropdowns",
+    style: "minimal",
+    title: { ko: "클릭 메뉴", en: "Click Menu" },
+    description: {
+      ko: "버튼을 누르면 메뉴가 펼쳐지고 다시 누르면 닫히는 인터랙티브 드롭다운입니다(JS).",
+      en: "An interactive dropdown that opens and closes when the button is clicked (JS).",
+    },
+    tags: ["interactive", "dropdown", "toggle", "menu"],
+    html: `<div class="dd-click">
+  <button class="dd-click__btn" type="button" aria-expanded="false">메뉴 ▾</button>
+  <div class="dd-click__menu">
+    <a>새 파일</a><a>열기</a><a>저장</a>
+  </div>
+</div>`,
+    css: `.dd-click { position: relative; display: inline-block; }
+.dd-click__btn { padding: 10px 18px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 14px; font-weight: 600; color: #0f172a; background: #fff; cursor: pointer; }
+.dd-click__menu {
+  position: absolute; top: calc(100% + 6px); left: 0; width: 160px; padding: 6px; border-radius: 12px;
+  background: #fff; border: 1px solid #eef2f7; box-shadow: 0 12px 28px rgba(15,23,42,0.14);
+  opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.dd-click__menu.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.dd-click__menu a { display: block; padding: 9px 12px; border-radius: 8px; font-size: 14px; color: #334155; cursor: pointer; }
+.dd-click__menu a:hover { background: #f1f5f9; }`,
+    js: `const root = document.querySelector('.dd-click');
+const btn = root.querySelector('.dd-click__btn');
+const menu = root.querySelector('.dd-click__menu');
+btn.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', String(open));
+});
+document.addEventListener('click', (e) => {
+  if (!root.contains(e.target)) { menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+});`,
+  },
 ];
 
 export default dropdowns;

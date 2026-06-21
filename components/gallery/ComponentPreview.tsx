@@ -7,16 +7,21 @@ import { useMemo } from "react";
 export default function ComponentPreview({
   html,
   css,
+  js,
   background,
   title,
 }: {
   html: string;
   css: string;
+  js?: string;
   background?: string;
   title: string;
 }) {
   const srcDoc = useMemo(() => {
     const bg = background ?? "#f1f5f9";
+    // The script runs in an opaque origin (allow-scripts without
+    // allow-same-origin), so it can drive the DOM but not reach the parent page.
+    const script = js ? `<script>${js}<\/script>` : "";
     return `<!doctype html><html><head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
@@ -25,8 +30,8 @@ export default function ComponentPreview({
   body{display:flex;align-items:center;justify-content:center;padding:24px;
     background:${bg};font-family:ui-sans-serif,system-ui,sans-serif}
   ${css}
-</style></head><body>${html}</body></html>`;
-  }, [html, css, background]);
+</style></head><body>${html}${script}</body></html>`;
+  }, [html, css, js, background]);
 
   return (
     <iframe

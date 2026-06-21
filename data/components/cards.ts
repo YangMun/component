@@ -342,6 +342,43 @@ const cards: ComponentEntry[] = [
 .card-pixel__hp span { display: block; width: 70%; height: 100%; background: #22c55e; }
 .card-pixel p { margin: 10px 0 0; font-size: 12px; color: #94a3b8; }`,
   },
+  {
+    id: "cards-tilt-3d",
+    slug: "tilt-3d",
+    category: "cards",
+    style: "glassmorphism",
+    title: { ko: "3D 틸트 카드", en: "3D Tilt Card" },
+    description: {
+      ko: "마우스를 따라 입체적으로 기울어지는 글래스 틸트 카드입니다(JS).",
+      en: "A glass card that tilts in 3D following the mouse (JS).",
+    },
+    tags: ["interactive", "tilt", "3d", "hover"],
+    featured: true,
+    previewBackground: "linear-gradient(135deg, #6366f1, #ec4899)",
+    html: `<article class="card-tilt">
+  <h3>3D TILT</h3>
+  <p>마우스를 올려보세요</p>
+</article>`,
+    css: `.card-tilt {
+  width: 200px; padding: 28px 22px; text-align: center; border-radius: 18px; color: #fff;
+  border: 1px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2); transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+.card-tilt h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: 0.08em; }
+.card-tilt p { margin: 0; font-size: 13px; opacity: 0.9; }`,
+    js: `const c = document.querySelector('.card-tilt');
+c.addEventListener('mousemove', (e) => {
+  const r = c.getBoundingClientRect();
+  const px = (e.clientX - r.left) / r.width - 0.5;
+  const py = (e.clientY - r.top) / r.height - 0.5;
+  c.style.transform = 'perspective(600px) rotateY(' + px * 18 + 'deg) rotateX(' + (-py * 18) + 'deg)';
+});
+c.addEventListener('mouseleave', () => {
+  c.style.transform = 'perspective(600px) rotateY(0) rotateX(0)';
+});`,
+  },
 ];
 
 export default cards;
