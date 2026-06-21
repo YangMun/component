@@ -33,8 +33,9 @@ app/                Next.js App Router
 components/         reusable React UI (layout, gallery, seo, content)
 data/               data-driven content
   categories.ts     component categories
-  components/        one file per component, aggregated in index.ts
-  types.ts          ComponentEntry type
+  styles.ts         design styles (trends/concepts)
+  components/        one array file per category, aggregated in index.ts
+  types.ts          ComponentEntry / Category / Style types
 i18n/               locale config + dictionaries (ko, en)
 lib/                site config, metadata helpers, utils
 public/             icons, service worker, static files
@@ -43,12 +44,17 @@ scripts/            icon generator
 
 ## Adding a component
 
-1. Create `data/components/<category>/<slug>.ts` exporting a `ComponentEntry`
-   (id, slug, category, localized title/description, tags, `html`, `css`).
-2. Import it and append it to the array in `data/components/index.ts`.
+1. Open the category's array file, e.g. `data/components/buttons.ts`.
+2. Append a `ComponentEntry` (id, slug, `category`, `style`, localized
+   title/description, tags, `html`, `css`, optional `previewBackground`,
+   `featured`). `category` must exist in `data/categories.ts` and `style` in
+   `data/styles.ts`.
 
-That's it — the gallery, category pages, sitemap, and home page pick it up
-automatically. No page code changes required.
+That's it — the gallery, category pages, style pages, sitemap, and home page
+pick it up automatically. No page code changes required.
+
+To add a **category** or **design style**, append to `data/categories.ts` or
+`data/styles.ts`; navigation, routes and the sitemap update automatically.
 
 ## Configuration
 

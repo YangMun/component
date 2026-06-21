@@ -7,7 +7,12 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { localeHref, formatCount } from "@/lib/utils";
 import { absoluteUrl } from "@/lib/site";
 import { categories } from "@/data/categories";
-import { getComponentCount, getFeaturedComponents } from "@/data/components";
+import { styles } from "@/data/styles";
+import {
+  getComponentCount,
+  getStyleCount,
+  getFeaturedComponents,
+} from "@/data/components";
 import ComponentCard from "@/components/gallery/ComponentCard";
 import JsonLd from "@/components/seo/JsonLd";
 
@@ -118,6 +123,37 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                     getComponentCount(category.id)
                   )}
                 </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Browse by design style */}
+      <section className="mx-auto max-w-content px-4 pt-12">
+        <div className="flex items-end justify-between">
+          <h2 className="text-2xl font-bold text-fg">
+            {dict.home.browseByStyle}
+          </h2>
+          <Link
+            href={localeHref(locale, "/styles")}
+            className="text-sm font-medium text-brand hover:underline"
+          >
+            {dict.actions.viewAll} →
+          </Link>
+        </div>
+        <ul className="mt-6 flex flex-wrap gap-3">
+          {styles.map((style) => (
+            <li key={style.id}>
+              <Link
+                href={localeHref(locale, `/styles/${style.id}`)}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-fg transition-colors hover:border-brand"
+              >
+                <span aria-hidden="true">{style.icon}</span>
+                {style.title[locale]}
+                <span className="text-xs text-muted">
+                  {getStyleCount(style.id)}
+                </span>
               </Link>
             </li>
           ))}

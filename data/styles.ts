@@ -1,0 +1,110 @@
+import type { Style } from "./types";
+
+// Design styles (trends / concepts). A component references one style id.
+// Add a style here and tag components with its id to make it browsable.
+export const styles: Style[] = [
+  {
+    id: "glassmorphism",
+    icon: "🧊",
+    accent: "#38bdf8",
+    title: { ko: "글래스모피즘", en: "Glassmorphism" },
+    description: {
+      ko: "반투명 유리와 블러로 깊이를 표현하는 스타일. SaaS·대시보드에 잘 어울립니다.",
+      en: "Translucent, blurred ‘frosted glass’ surfaces. Great for SaaS and dashboards.",
+    },
+  },
+  {
+    id: "neumorphism",
+    icon: "🫧",
+    accent: "#94a3b8",
+    title: { ko: "뉴모피즘", en: "Neumorphism" },
+    description: {
+      ko: "부드러운 음영으로 배경에서 눌리고 솟은 입체감을 주는 스타일.",
+      en: "Soft inner/outer shadows that make elements feel pressed into the surface.",
+    },
+  },
+  {
+    id: "neobrutalism",
+    icon: "🟨",
+    accent: "#facc15",
+    title: { ko: "네오브루탈리즘", en: "Neo-Brutalism" },
+    description: {
+      ko: "두꺼운 검은 테두리와 하드 섀도, 강한 색으로 시선을 끄는 스타일.",
+      en: "Thick black borders, hard offset shadows and bold colors that grab attention.",
+    },
+  },
+  {
+    id: "claymorphism",
+    icon: "🧱",
+    accent: "#f472b6",
+    title: { ko: "클레이모피즘", en: "Claymorphism" },
+    description: {
+      ko: "말랑한 점토 느낌의 둥근 형태와 파스텔 색. 앱·키즈 UI에 좋습니다.",
+      en: "Puffy, clay-like rounded shapes in pastel colors. Friendly for apps and kids.",
+    },
+  },
+  {
+    id: "gradient",
+    icon: "🌈",
+    accent: "#a855f7",
+    title: { ko: "그라데이션 / 오로라", en: "Gradient / Aurora" },
+    description: {
+      ko: "화려한 색 전환과 오로라 빛. 랜딩 페이지와 프로모션에 효과적입니다.",
+      en: "Vivid color transitions and aurora glows. Effective for landing and promo pages.",
+    },
+  },
+  {
+    id: "neon",
+    icon: "💡",
+    accent: "#22d3ee",
+    title: { ko: "네온 / 사이버펑크", en: "Neon / Cyberpunk" },
+    description: {
+      ko: "어두운 배경 위 발광하는 네온. 게임·테크 제품에 어울립니다.",
+      en: "Glowing neon on dark backgrounds. Suits gaming and tech products.",
+    },
+  },
+  {
+    id: "minimal",
+    icon: "⚪",
+    accent: "#0f172a",
+    title: { ko: "미니멀", en: "Minimal" },
+    description: {
+      ko: "절제된 색과 여백으로 콘텐츠에 집중하는 스타일. 포트폴리오에 적합합니다.",
+      en: "Restrained color and whitespace that put content first. Ideal for portfolios.",
+    },
+  },
+  {
+    id: "retro",
+    icon: "📼",
+    accent: "#fb7185",
+    title: { ko: "레트로 / Y2K", en: "Retro / Y2K" },
+    description: {
+      ko: "빈티지와 바이퍼웨이브 감성의 복고 스타일.",
+      en: "Vintage and vaporwave-flavored retro aesthetics.",
+    },
+  },
+  {
+    id: "material",
+    icon: "📐",
+    accent: "#2563eb",
+    title: { ko: "머티리얼", en: "Material" },
+    description: {
+      ko: "그림자와 엘리베이션으로 위계를 표현하는 안드로이드풍 스타일.",
+      en: "Shadow and elevation to express hierarchy, in an Android-like style.",
+    },
+  },
+  {
+    id: "threed",
+    icon: "🎲",
+    accent: "#f97316",
+    title: { ko: "3D / 스큐어모픽", en: "3D / Skeuomorphic" },
+    description: {
+      ko: "입체 버튼과 물성 표현으로 실제 사물 같은 질감을 주는 스타일.",
+      en: "Three-dimensional buttons and tactile materials that mimic real objects.",
+    },
+  },
+];
+
+export function getStyle(id: string): Style | undefined {
+  return styles.find((s) => s.id === id);
+}

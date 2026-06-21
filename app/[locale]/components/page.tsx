@@ -7,6 +7,7 @@ import { components } from "@/data/components";
 import { formatCount } from "@/lib/utils";
 import ComponentCard from "@/components/gallery/ComponentCard";
 import CategoryNav from "@/components/gallery/CategoryNav";
+import StyleNav from "@/components/gallery/StyleNav";
 
 export function generateMetadata({
   params,
@@ -39,8 +40,11 @@ export default function ComponentsPage({
         <p className="mt-2 text-muted">{dict.gallery.subtitle}</p>
       </header>
 
-      <div className="mb-10">
+      <div className="mb-6">
         <CategoryNav locale={locale} dict={dict} />
+      </div>
+      <div className="mb-10">
+        <StyleNav locale={locale} dict={dict} />
       </div>
 
       <p className="mb-6 text-sm text-muted">
