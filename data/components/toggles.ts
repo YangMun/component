@@ -203,6 +203,33 @@ const toggles: ComponentEntry[] = [
 .sw-pixel__thumb { position: absolute; top: 3px; left: 3px; width: 23px; height: 23px; background: #64748b; transition: left 0.1s steps(2); }
 .sw-pixel input:checked + .sw-pixel__track .sw-pixel__thumb { left: 32px; background: #22c55e; box-shadow: 0 0 8px #22c55e; }`,
   },
+  {
+    id: "toggles-holographic-switch",
+    slug: "holographic-switch",
+    category: "toggles",
+    style: "holographic",
+    title: { ko: "홀로그래픽 스위치", en: "Holographic Switch" },
+    description: {
+      ko: "켜면 트랙이 무지갯빛 홀로그램으로 채워지는 토글 스위치입니다.",
+      en: "A toggle whose track fills with a holographic rainbow when switched on.",
+    },
+    tags: ["toggle", "switch", "holographic", "홀로그램"],
+    previewBackground: "#0b1020",
+    html: `<label class="sw-holo">
+  <input type="checkbox" checked />
+  <span class="sw-holo__track"><span class="sw-holo__thumb"></span></span>
+</label>`,
+    css: `.sw-holo { display: inline-block; cursor: pointer; }
+.sw-holo input { display: none; }
+.sw-holo__track { display: block; width: 64px; height: 32px; border-radius: 9999px; background: #312e57; position: relative; transition: background 0.3s ease; }
+.sw-holo__thumb { position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; transition: left 0.3s ease; }
+.sw-holo input:checked + .sw-holo__track {
+  background: linear-gradient(115deg, #a78bfa, #f0abfc, #7dd3fc, #6ee7b7, #fda4af, #a78bfa);
+  background-size: 300% 100%; animation: sw-holo 3s linear infinite;
+}
+.sw-holo input:checked + .sw-holo__track .sw-holo__thumb { left: 35px; }
+@keyframes sw-holo { to { background-position: 300% 0; } }`,
+  },
 ];
 
 export default toggles;

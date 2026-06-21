@@ -379,6 +379,159 @@ c.addEventListener('mouseleave', () => {
   c.style.transform = 'perspective(600px) rotateY(0) rotateX(0)';
 });`,
   },
+  {
+    id: "cards-holographic-card",
+    slug: "holographic-card",
+    category: "cards",
+    style: "holographic",
+    title: { ko: "홀로그래픽 카드", en: "Holographic Card" },
+    description: {
+      ko: "무지갯빛이 흐르는 홀로그램 멤버십 카드입니다.",
+      en: "A holographic membership card with a flowing rainbow sheen.",
+    },
+    tags: ["card", "holographic", "iridescent", "홀로그램"],
+    featured: true,
+    previewBackground: "#0b1020",
+    html: `<article class="card-holo">
+  <span class="card-holo__label">MEMBER</span>
+  <span class="card-holo__no">**** 2049</span>
+</article>`,
+    css: `.card-holo {
+  width: 250px; height: 150px; padding: 20px; display: flex; flex-direction: column;
+  justify-content: space-between; border-radius: 16px; color: #1e1b4b; font-weight: 700;
+  background: linear-gradient(115deg, #a78bfa, #f0abfc, #7dd3fc, #6ee7b7, #fda4af, #a78bfa);
+  background-size: 300% 100%; animation: card-holo-shift 5s linear infinite;
+  box-shadow: 0 12px 30px rgba(167,139,250,0.5);
+}
+.card-holo__label { font-size: 12px; letter-spacing: 0.2em; }
+.card-holo__no { font-size: 20px; letter-spacing: 0.1em; }
+@keyframes card-holo-shift { to { background-position: 300% 0; } }`,
+  },
+  {
+    id: "cards-paper-note",
+    slug: "paper-note",
+    category: "cards",
+    style: "paper",
+    title: { ko: "페이퍼 노트", en: "Paper Note" },
+    description: {
+      ko: "테이프로 붙인 듯한 손그림 느낌의 종이 메모 카드입니다.",
+      en: "A hand-drawn paper note card that looks taped to the wall.",
+    },
+    tags: ["card", "paper", "note", "sketch"],
+    previewBackground: "#e7e5e4",
+    html: `<article class="card-paper">
+  <span class="card-paper__tape"></span>
+  <h3>To-do</h3>
+  <p>아이디어 스케치하기 ✏️</p>
+</article>`,
+    css: `.card-paper {
+  position: relative; width: 220px; padding: 22px; background: #fffdf7; color: #44403c;
+  border: 2px solid #44403c; border-radius: 255px 14px 225px 14px / 14px 225px 14px 255px;
+  box-shadow: 3px 4px 0 rgba(68,64,60,0.5); transform: rotate(-2deg);
+}
+.card-paper__tape { position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(3deg); width: 60px; height: 18px; background: rgba(250,204,21,0.6); }
+.card-paper h3 { margin: 0 0 8px; font-size: 18px; }
+.card-paper p { margin: 0; font-size: 14px; line-height: 1.5; }`,
+  },
+  {
+    id: "cards-outline-card",
+    slug: "outline-card",
+    category: "cards",
+    style: "outline",
+    title: { ko: "아웃라인 카드", en: "Outline Card" },
+    description: {
+      ko: "얇은 단색 선으로만 구성한 미니멀 라인아트 카드입니다.",
+      en: "A minimal line-art card built purely from thin strokes.",
+    },
+    tags: ["card", "outline", "line", "minimal"],
+    html: `<article class="card-outline">
+  <span class="card-outline__icon">◎</span>
+  <h3>라인아트</h3>
+  <p>선만으로 표현한 깔끔한 카드입니다.</p>
+</article>`,
+    css: `.card-outline {
+  width: 240px; padding: 22px; border: 1.5px solid #0f172a; border-radius: 14px; background: transparent;
+  transition: box-shadow 0.2s ease;
+}
+.card-outline:hover { box-shadow: 5px 5px 0 #0f172a; }
+.card-outline__icon { font-size: 26px; color: #0f172a; }
+.card-outline h3 { margin: 10px 0 6px; font-size: 17px; font-weight: 700; color: #0f172a; }
+.card-outline p { margin: 0; font-size: 13px; line-height: 1.6; color: #475569; }`,
+  },
+  {
+    id: "cards-memphis-card",
+    slug: "memphis-card",
+    category: "cards",
+    style: "memphis",
+    title: { ko: "멤피스 카드", en: "Memphis Card" },
+    description: {
+      ko: "기하학 도형과 발랄한 색이 가득한 80년대 멤피스 카드입니다.",
+      en: "An 80s Memphis card full of geometric shapes and playful colors.",
+    },
+    tags: ["card", "memphis", "geometric", "멤피스"],
+    previewBackground: "#fef9c3",
+    html: `<article class="card-memphis">
+  <h3>MEMPHIS</h3>
+  <p>80년대 감성의 도형 카드</p>
+</article>`,
+    css: `.card-memphis {
+  position: relative; width: 240px; padding: 24px; overflow: hidden;
+  background: #fff7ed; border: 3px solid #111; border-radius: 10px; box-shadow: 6px 6px 0 #111;
+  background-image: radial-gradient(#f43f5e 3px, transparent 3px), radial-gradient(#22d3ee 3px, transparent 3px);
+  background-size: 26px 26px; background-position: 0 0, 13px 13px;
+}
+.card-memphis h3 { margin: 0 0 8px; font-size: 20px; font-weight: 900; color: #111; }
+.card-memphis p { margin: 0; font-size: 13px; font-weight: 600; color: #333; background: #fff7ed; display: inline; }`,
+  },
+  {
+    id: "cards-duotone-card",
+    slug: "duotone-card",
+    category: "cards",
+    style: "duotone",
+    title: { ko: "듀오톤 카드", en: "Duotone Card" },
+    description: {
+      ko: "두 색의 강한 대비로 구성한 임팩트 있는 듀오톤 카드입니다.",
+      en: "A bold duotone card built from two strongly contrasting colors.",
+    },
+    tags: ["card", "duotone", "contrast", "듀오톤"],
+    html: `<article class="card-duotone">
+  <div class="card-duotone__top">2049</div>
+  <div class="card-duotone__bottom"><h3>FUTURE</h3><p>듀오톤 디자인</p></div>
+</article>`,
+    css: `.card-duotone { width: 220px; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 28px rgba(79,70,229,0.3); }
+.card-duotone__top { padding: 26px 20px; font-size: 30px; font-weight: 900; color: #ec4899; background: #4f46e5; }
+.card-duotone__bottom { padding: 18px 20px; background: #ec4899; color: #4f46e5; }
+.card-duotone__bottom h3 { margin: 0 0 4px; font-size: 18px; font-weight: 800; }
+.card-duotone__bottom p { margin: 0; font-size: 13px; font-weight: 600; }`,
+  },
+  {
+    id: "cards-bento-grid",
+    slug: "bento-grid",
+    category: "cards",
+    style: "minimal",
+    title: { ko: "벤토 그리드", en: "Bento Grid" },
+    description: {
+      ko: "크기가 다른 칸을 모아 구성하는 요즘 유행하는 벤토 그리드 레이아웃입니다.",
+      en: "A trendy bento-grid layout assembled from cells of varying sizes.",
+    },
+    tags: ["card", "bento", "grid", "layout"],
+    featured: true,
+    html: `<div class="card-bento">
+  <div class="card-bento__a">A</div>
+  <div class="card-bento__b">B</div>
+  <div class="card-bento__c">C</div>
+  <div class="card-bento__d">D</div>
+</div>`,
+    css: `.card-bento {
+  display: grid; grid-template-columns: repeat(3, 56px); grid-template-rows: repeat(2, 56px);
+  gap: 8px;
+}
+.card-bento > div { display: grid; place-items: center; border-radius: 14px; font-weight: 800; color: #fff; }
+.card-bento__a { grid-column: span 2; background: #6366f1; }
+.card-bento__b { background: #ec4899; }
+.card-bento__c { background: #22c55e; }
+.card-bento__d { grid-column: span 2; background: #0f172a; }`,
+  },
 ];
 
 export default cards;

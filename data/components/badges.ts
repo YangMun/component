@@ -156,6 +156,116 @@ const badges: ComponentEntry[] = [
   border: 2px solid #0d0d18; box-shadow: 3px 3px 0 #22c55e; image-rendering: pixelated;
 }`,
   },
+  {
+    id: "badges-holographic-badge",
+    slug: "holographic-badge",
+    category: "badges",
+    style: "holographic",
+    title: { ko: "홀로그래픽 배지", en: "Holographic Badge" },
+    description: {
+      ko: "무지갯빛이 흐르는 홀로그램 질감의 배지입니다.",
+      en: "A badge with a flowing holographic rainbow sheen.",
+    },
+    tags: ["badge", "holographic", "iridescent", "홀로그램"],
+    previewBackground: "#0b1020",
+    html: `<span class="badge-holo">VIP</span>`,
+    css: `.badge-holo {
+  display: inline-block; padding: 6px 16px; border-radius: 9999px; font-size: 12px; font-weight: 800;
+  color: #1e1b4b;
+  background: linear-gradient(115deg, #a78bfa, #f0abfc, #7dd3fc, #6ee7b7, #fda4af, #a78bfa);
+  background-size: 300% 100%; animation: badge-holo 4s linear infinite;
+}
+@keyframes badge-holo { to { background-position: 300% 0; } }`,
+  },
+  {
+    id: "badges-paper-tag",
+    slug: "paper-tag",
+    category: "badges",
+    style: "paper",
+    title: { ko: "페이퍼 태그", en: "Paper Tag" },
+    description: {
+      ko: "손으로 그린 듯한 거친 테두리의 종이 가격표 태그입니다.",
+      en: "A paper price-tag with a hand-drawn, sketchy border.",
+    },
+    tags: ["badge", "paper", "tag", "sketch"],
+    previewBackground: "#fdf6e3",
+    html: `<span class="badge-paper">SALE</span>`,
+    css: `.badge-paper {
+  display: inline-block; padding: 6px 14px; font-size: 12px; font-weight: 800; color: #44403c;
+  background: #fffdf7; border: 2px solid #44403c;
+  border-radius: 18px 4px 20px 4px / 4px 20px 4px 18px; box-shadow: 2px 2px 0 #44403c;
+}`,
+  },
+  {
+    id: "badges-outline-badge",
+    slug: "outline-badge",
+    category: "badges",
+    style: "outline",
+    title: { ko: "아웃라인 배지", en: "Outline Badge" },
+    description: {
+      ko: "얇은 단색 선으로만 그린 라인아트 배지입니다.",
+      en: "A line-art badge drawn purely with a thin stroke.",
+    },
+    tags: ["badge", "outline", "line", "minimal"],
+    html: `<span class="badge-outline">BETA</span>`,
+    css: `.badge-outline {
+  display: inline-block; padding: 5px 13px; border: 1.5px solid #0f172a; border-radius: 9999px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #0f172a; background: transparent;
+}`,
+  },
+  {
+    id: "badges-memphis-badge",
+    slug: "memphis-badge",
+    category: "badges",
+    style: "memphis",
+    title: { ko: "멤피스 배지", en: "Memphis Badge" },
+    description: {
+      ko: "발랄한 색과 하드 섀도의 80년대 멤피스 배지입니다.",
+      en: "An 80s Memphis badge with playful color and a hard shadow.",
+    },
+    tags: ["badge", "memphis", "playful", "멤피스"],
+    previewBackground: "#fef9c3",
+    html: `<span class="badge-memphis">NEW!</span>`,
+    css: `.badge-memphis {
+  display: inline-block; padding: 6px 14px; transform: rotate(-4deg); font-size: 12px; font-weight: 900;
+  color: #111; background: #22d3ee; border: 2px solid #111; border-radius: 6px; box-shadow: 3px 3px 0 #f43f5e;
+}`,
+  },
+  {
+    id: "badges-duotone-badge",
+    slug: "duotone-badge",
+    category: "badges",
+    style: "duotone",
+    title: { ko: "듀오톤 배지", en: "Duotone Badge" },
+    description: {
+      ko: "두 색이 나뉜 강한 대비의 듀오톤 배지입니다.",
+      en: "A high-contrast duotone badge split into two colors.",
+    },
+    tags: ["badge", "duotone", "contrast", "듀오톤"],
+    html: `<span class="badge-duotone"><span>PRO</span><span>+</span></span>`,
+    css: `.badge-duotone { display: inline-flex; border-radius: 8px; overflow: hidden; font-size: 12px; font-weight: 800; }
+.badge-duotone span:first-child { padding: 5px 12px; color: #fff; background: #4f46e5; }
+.badge-duotone span:last-child { padding: 5px 10px; color: #4f46e5; background: #ec4899; }`,
+  },
+  {
+    id: "badges-notification-dot",
+    slug: "notification-dot",
+    category: "badges",
+    style: "minimal",
+    title: { ko: "알림 도트", en: "Notification Dot" },
+    description: {
+      ko: "아이콘 위에 개수를 표시하는 알림 배지입니다.",
+      en: "A notification badge that shows a count on top of an icon.",
+    },
+    tags: ["badge", "notification", "count", "icon"],
+    html: `<span class="badge-noti">🔔<span class="badge-noti__count">5</span></span>`,
+    css: `.badge-noti { position: relative; display: inline-block; font-size: 28px; }
+.badge-noti__count {
+  position: absolute; top: -4px; right: -6px; min-width: 18px; height: 18px; padding: 0 4px;
+  display: grid; place-items: center; border-radius: 9999px; font-size: 11px; font-weight: 700;
+  color: #fff; background: #ef4444; border: 2px solid #fff; box-sizing: content-box;
+}`,
+  },
 ];
 
 export default badges;

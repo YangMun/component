@@ -133,6 +133,46 @@ const tooltips: ComponentEntry[] = [
     6px 6px 14px rgba(190,24,93,0.2);
 }`,
   },
+  {
+    id: "tooltips-paper-tip",
+    slug: "paper-tip",
+    category: "tooltips",
+    style: "paper",
+    title: { ko: "페이퍼 팁", en: "Paper Tip" },
+    description: {
+      ko: "손으로 그린 듯한 거친 테두리의 종이 질감 툴팁입니다.",
+      en: "A paper-textured tooltip with a hand-drawn, sketchy border.",
+    },
+    tags: ["tooltip", "paper", "sketch", "bubble"],
+    previewBackground: "#fdf6e3",
+    html: `<span class="tip-paper">메모를 남겨보세요</span>`,
+    css: `.tip-paper {
+  display: inline-block; padding: 9px 16px; font-size: 13px; color: #44403c; background: #fffdf7;
+  border: 2px solid #44403c; border-radius: 18px 6px 20px 6px / 6px 20px 6px 18px; box-shadow: 2px 2px 0 #44403c;
+}`,
+  },
+  {
+    id: "tooltips-outline-tip",
+    slug: "outline-tip",
+    category: "tooltips",
+    style: "outline",
+    title: { ko: "아웃라인 팁", en: "Outline Tip" },
+    description: {
+      ko: "얇은 단색 선과 화살표로 그린 라인아트 툴팁입니다.",
+      en: "A line-art tooltip drawn with a thin stroke and an arrow.",
+    },
+    tags: ["tooltip", "outline", "line", "bubble"],
+    html: `<span class="tip-outline">도움말</span>`,
+    css: `.tip-outline {
+  position: relative; display: inline-block; padding: 8px 15px; font-size: 13px; color: #0f172a;
+  background: #fff; border: 1.5px solid #0f172a; border-radius: 8px;
+}
+.tip-outline::after {
+  content: ""; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%);
+  width: 10px; height: 10px; background: #fff; border-right: 1.5px solid #0f172a; border-bottom: 1.5px solid #0f172a;
+  rotate: 45deg;
+}`,
+  },
 ];
 
 export default tooltips;

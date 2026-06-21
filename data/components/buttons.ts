@@ -441,6 +441,136 @@ btn.addEventListener('click', (e) => {
   setTimeout(() => span.remove(), 600);
 });`,
   },
+  {
+    id: "buttons-holographic-foil",
+    slug: "holographic-foil",
+    category: "buttons",
+    style: "holographic",
+    title: { ko: "홀로그래픽 포일", en: "Holographic Foil" },
+    description: {
+      ko: "무지갯빛이 천천히 흐르는 홀로그램 포일 질감의 버튼입니다.",
+      en: "A button with a slowly flowing holographic rainbow foil sheen.",
+    },
+    tags: ["holographic", "iridescent", "rainbow", "홀로그램"],
+    featured: true,
+    previewBackground: "#0b1020",
+    html: `<button class="btn-holo">GET TICKET</button>`,
+    css: `.btn-holo {
+  padding: 14px 30px; border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
+  color: #1e1b4b; cursor: pointer;
+  background: linear-gradient(115deg, #a78bfa, #f0abfc, #7dd3fc, #6ee7b7, #fda4af, #a78bfa);
+  background-size: 300% 100%; animation: btn-holo-shift 4s linear infinite;
+  box-shadow: 0 8px 24px rgba(167,139,250,0.5);
+}
+@keyframes btn-holo-shift { to { background-position: 300% 0; } }`,
+  },
+  {
+    id: "buttons-paper-sketch",
+    slug: "paper-sketch",
+    category: "buttons",
+    style: "paper",
+    title: { ko: "페이퍼 스케치", en: "Paper Sketch" },
+    description: {
+      ko: "손으로 그린 듯한 거친 테두리의 종이 질감 버튼입니다.",
+      en: "A paper-textured button with a hand-drawn, sketchy border.",
+    },
+    tags: ["paper", "sketch", "hand-drawn", "종이"],
+    previewBackground: "#fdf6e3",
+    html: `<button class="btn-paper">스케치</button>`,
+    css: `.btn-paper {
+  padding: 12px 26px; font-size: 16px; font-weight: 700; color: #44403c; cursor: pointer;
+  background: #fffdf7; border: 2px solid #44403c;
+  border-radius: 255px 12px 225px 12px / 12px 225px 12px 255px;
+  box-shadow: 2px 3px 0 #44403c; transition: transform 0.12s ease;
+}
+.btn-paper:hover { transform: rotate(-1deg) translateY(-1px); }
+.btn-paper:active { transform: translateY(1px); box-shadow: 1px 1px 0 #44403c; }`,
+  },
+  {
+    id: "buttons-outline-line",
+    slug: "outline-line",
+    category: "buttons",
+    style: "outline",
+    title: { ko: "아웃라인 라인", en: "Outline Line" },
+    description: {
+      ko: "얇은 단색 선과 호버 시 채워지는 밑줄이 특징인 라인아트 버튼입니다.",
+      en: "A line-art button with a thin stroke and an underline that fills on hover.",
+    },
+    tags: ["outline", "line", "minimal", "stroke"],
+    html: `<button class="btn-outline-line">자세히 보기</button>`,
+    css: `.btn-outline-line {
+  position: relative; padding: 11px 6px; border: none; background: transparent;
+  font-size: 16px; font-weight: 600; color: #0f172a; cursor: pointer;
+}
+.btn-outline-line::after {
+  content: ""; position: absolute; left: 0; bottom: 4px; width: 100%; height: 1.5px;
+  background: #0f172a; transform: scaleX(0.35); transform-origin: left; transition: transform 0.25s ease;
+}
+.btn-outline-line:hover::after { transform: scaleX(1); }`,
+  },
+  {
+    id: "buttons-memphis-pop",
+    slug: "memphis-pop",
+    category: "buttons",
+    style: "memphis",
+    title: { ko: "멤피스 팝", en: "Memphis Pop" },
+    description: {
+      ko: "발랄한 색과 기하학 도형 패턴이 들어간 80년대 멤피스 버튼입니다.",
+      en: "An 80s Memphis button with playful colors and geometric shapes.",
+    },
+    tags: ["memphis", "geometric", "playful", "멤피스"],
+    previewBackground: "#fef3c7",
+    html: `<button class="btn-memphis">PARTY</button>`,
+    css: `.btn-memphis {
+  position: relative; padding: 14px 30px; border: 3px solid #111; border-radius: 8px;
+  font-size: 16px; font-weight: 800; color: #111; cursor: pointer; background: #f43f5e;
+  box-shadow: 4px 4px 0 #111; overflow: hidden;
+}
+.btn-memphis::before {
+  content: ""; position: absolute; top: -8px; right: -8px; width: 26px; height: 26px;
+  background: #22d3ee; border: 2px solid #111; border-radius: 50%;
+}
+.btn-memphis:active { transform: translate(4px,4px); box-shadow: 0 0 0 #111; }`,
+  },
+  {
+    id: "buttons-duotone-split",
+    slug: "duotone-split",
+    category: "buttons",
+    style: "duotone",
+    title: { ko: "듀오톤 스플릿", en: "Duotone Split" },
+    description: {
+      ko: "두 색이 대각선으로 나뉜 강한 대비의 듀오톤 버튼입니다.",
+      en: "A high-contrast duotone button split diagonally by two colors.",
+    },
+    tags: ["duotone", "split", "contrast", "듀오톤"],
+    html: `<button class="btn-duotone">SUBSCRIBE</button>`,
+    css: `.btn-duotone {
+  padding: 13px 30px; border: none; border-radius: 10px; font-size: 16px; font-weight: 700;
+  color: #fff; cursor: pointer;
+  background: linear-gradient(110deg, #4f46e5 0 50%, #ec4899 50% 100%);
+  background-size: 220% 100%; background-position: 0 0; transition: background-position 0.35s ease;
+}
+.btn-duotone:hover { background-position: 100% 0; }`,
+  },
+  {
+    id: "buttons-icon-fab",
+    slug: "icon-fab",
+    category: "buttons",
+    style: "material",
+    title: { ko: "플로팅 액션 버튼", en: "Floating Action Button" },
+    description: {
+      ko: "그림자가 떠 있는 원형 머티리얼 플로팅 액션 버튼(FAB)입니다.",
+      en: "A circular material floating action button (FAB) with elevation.",
+    },
+    tags: ["fab", "material", "icon", "floating"],
+    html: `<button class="btn-fab" aria-label="추가">+</button>`,
+    css: `.btn-fab {
+  width: 60px; height: 60px; border: none; border-radius: 50%; font-size: 30px; line-height: 1;
+  color: #fff; background: #2563eb; cursor: pointer; box-shadow: 0 6px 16px rgba(37,99,235,0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-fab:hover { transform: translateY(-3px) rotate(90deg); box-shadow: 0 10px 24px rgba(37,99,235,0.6); }`,
+  },
 ];
 
 export default buttons;

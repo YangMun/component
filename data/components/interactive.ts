@@ -383,6 +383,78 @@ root.querySelectorAll('[data-color]').forEach((b) => {
   b.addEventListener('click', () => { card.style.background = b.dataset.color; });
 });`,
   },
+  {
+    id: "interactive-carousel-dots",
+    slug: "carousel-dots",
+    category: "interactive",
+    style: "gradient",
+    title: { ko: "캐러셀 도트", en: "Carousel Dots" },
+    description: {
+      ko: "도트를 누르면 해당 슬라이드로 부드럽게 전환되는 캐러셀입니다(JS).",
+      en: "A carousel that slides smoothly to the chosen slide when a dot is clicked (JS).",
+    },
+    tags: ["interactive", "carousel", "slider", "dots"],
+    featured: true,
+    html: `<div class="ic-carousel">
+  <div class="ic-carousel__track">
+    <div style="background:#7c3aed">1</div>
+    <div style="background:#ec4899">2</div>
+    <div style="background:#22d3ee">3</div>
+  </div>
+  <div class="ic-carousel__dots">
+    <button class="on" data-i="0" aria-label="1"></button>
+    <button data-i="1" aria-label="2"></button>
+    <button data-i="2" aria-label="3"></button>
+  </div>
+</div>`,
+    css: `.ic-carousel { width: 240px; }
+.ic-carousel__track { display: flex; overflow: hidden; border-radius: 14px; }
+.ic-carousel__track > div { min-width: 100%; height: 110px; display: grid; place-items: center; color: #fff; font-size: 32px; font-weight: 800; transition: none; }
+.ic-carousel__track { scroll-behavior: smooth; }
+.ic-carousel__inner { display: flex; transition: transform 0.4s ease; }
+.ic-carousel__dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+.ic-carousel__dots button { width: 9px; height: 9px; border: none; border-radius: 50%; background: #cbd5e1; cursor: pointer; transition: all 0.2s ease; }
+.ic-carousel__dots button.on { width: 22px; border-radius: 9999px; background: linear-gradient(90deg, #7c3aed, #ec4899); }`,
+    js: `const root = document.querySelector('.ic-carousel');
+const track = root.querySelector('.ic-carousel__track');
+const slides = Array.from(track.children);
+const dots = Array.from(root.querySelectorAll('.ic-carousel__dots button'));
+function go(i) {
+  track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });
+  dots.forEach((d, j) => d.classList.toggle('on', i === j));
+}
+dots.forEach((d) => d.addEventListener('click', () => go(Number(d.dataset.i))));`,
+  },
+  {
+    id: "interactive-dark-mode-switch",
+    slug: "dark-mode-switch",
+    category: "interactive",
+    style: "minimal",
+    title: { ko: "다크모드 스위치", en: "Dark Mode Switch" },
+    description: {
+      ko: "해/달 토글을 누르면 미리보기 카드가 라이트·다크로 바뀝니다(JS).",
+      en: "A sun/moon toggle that flips the preview card between light and dark (JS).",
+    },
+    tags: ["interactive", "dark-mode", "toggle", "theme"],
+    html: `<div class="ic-dark" data-theme="light">
+  <button class="ic-dark__btn" type="button" aria-label="테마 전환"><span>🌙</span></button>
+  <div class="ic-dark__card">Aa</div>
+</div>`,
+    css: `.ic-dark { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.ic-dark__btn { width: 48px; height: 48px; border: none; border-radius: 50%; font-size: 22px; cursor: pointer; background: #e2e8f0; transition: background 0.3s ease; }
+.ic-dark__card { display: grid; place-items: center; width: 120px; height: 70px; border-radius: 14px; font-size: 22px; font-weight: 800; transition: all 0.3s ease; }
+.ic-dark[data-theme="light"] .ic-dark__card { background: #f8fafc; color: #0f172a; box-shadow: inset 0 0 0 1px #e2e8f0; }
+.ic-dark[data-theme="dark"] .ic-dark__card { background: #0f172a; color: #f8fafc; }
+.ic-dark[data-theme="dark"] .ic-dark__btn { background: #334155; }`,
+    js: `const root = document.querySelector('.ic-dark');
+const btn = root.querySelector('.ic-dark__btn');
+const icon = btn.querySelector('span');
+btn.addEventListener('click', () => {
+  const dark = root.dataset.theme === 'light';
+  root.dataset.theme = dark ? 'dark' : 'light';
+  icon.textContent = dark ? '☀️' : '🌙';
+});`,
+  },
 ];
 
 export default interactive;

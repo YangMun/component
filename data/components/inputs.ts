@@ -222,6 +222,72 @@ const inputs: ComponentEntry[] = [
 .field-pixel::placeholder { color: #4b5563; }
 .field-pixel:focus { border-color: #fde047; color: #fde047; box-shadow: 4px 4px 0 #0d0d18, 0 0 0 1px #fde047; }`,
   },
+  {
+    id: "inputs-paper-field",
+    slug: "paper-field",
+    category: "inputs",
+    style: "paper",
+    title: { ko: "페이퍼 필드", en: "Paper Field" },
+    description: {
+      ko: "손으로 그린 듯한 거친 테두리의 종이 질감 입력창입니다.",
+      en: "A paper-textured input with a hand-drawn, sketchy border.",
+    },
+    tags: ["input", "paper", "sketch", "form"],
+    previewBackground: "#fdf6e3",
+    html: `<input class="field-paper" type="text" placeholder="여기에 적어보세요" />`,
+    css: `.field-paper {
+  width: 240px; padding: 12px 16px; font-size: 15px; color: #44403c; background: #fffdf7;
+  border: 2px solid #44403c; border-radius: 255px 12px 225px 12px / 12px 225px 12px 255px;
+  outline: none; box-shadow: 2px 3px 0 rgba(68,64,60,0.4);
+}
+.field-paper::placeholder { color: #a8a29e; }
+.field-paper:focus { border-color: #d97706; }`,
+  },
+  {
+    id: "inputs-outline-field",
+    slug: "outline-field",
+    category: "inputs",
+    style: "outline",
+    title: { ko: "아웃라인 필드", en: "Outline Field" },
+    description: {
+      ko: "포커스 시 라벨이 테두리 위로 올라가는 노치 아웃라인 입력창입니다.",
+      en: "A notched-outline input whose label sits on the border like Material outlined fields.",
+    },
+    tags: ["input", "outline", "line", "label"],
+    html: `<label class="field-outline">
+  <input type="text" placeholder=" " />
+  <span>이름</span>
+</label>`,
+    css: `.field-outline { position: relative; display: inline-block; width: 240px; }
+.field-outline input { width: 100%; padding: 14px 14px; border: 1.5px solid #94a3b8; border-radius: 10px; font-size: 15px; color: #0f172a; background: transparent; outline: none; }
+.field-outline input:focus { border-color: #0f172a; }
+.field-outline span { position: absolute; left: 10px; top: 14px; padding: 0 5px; font-size: 15px; color: #94a3b8; background: #fff; pointer-events: none; transition: all 0.15s ease; }
+.field-outline input:focus + span, .field-outline input:not(:placeholder-shown) + span { top: -8px; font-size: 12px; color: #0f172a; }`,
+  },
+  {
+    id: "inputs-otp-code",
+    slug: "otp-code",
+    category: "inputs",
+    style: "minimal",
+    title: { ko: "OTP 코드", en: "OTP Code" },
+    description: {
+      ko: "인증 번호를 한 자리씩 입력하는 칸 분리형 OTP 입력 그룹입니다.",
+      en: "A segmented one-time-passcode input group with one box per digit.",
+    },
+    tags: ["input", "otp", "code", "verification"],
+    html: `<div class="field-otp">
+  <input maxlength="1" value="3" inputmode="numeric" aria-label="1" />
+  <input maxlength="1" value="7" inputmode="numeric" aria-label="2" />
+  <input maxlength="1" inputmode="numeric" aria-label="3" />
+  <input maxlength="1" inputmode="numeric" aria-label="4" />
+</div>`,
+    css: `.field-otp { display: inline-flex; gap: 10px; }
+.field-otp input {
+  width: 48px; height: 56px; text-align: center; font-size: 22px; font-weight: 700; color: #0f172a;
+  border: 1.5px solid #cbd5e1; border-radius: 12px; outline: none; background: #fff;
+}
+.field-otp input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }`,
+  },
 ];
 
 export default inputs;
