@@ -4,26 +4,29 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import CopyButton from "./CopyButton";
 
-type Tab = "html" | "css";
+type Tab = "html" | "css" | "js";
 
-// HTML/CSS tabbed code viewer with a one-click copy button per tab.
+// HTML/CSS(/JS) tabbed code viewer with a one-click copy button per tab.
 export default function CodeTabs({
   html,
   css,
+  js,
   labels,
 }: {
   html: string;
   css: string;
+  js?: string;
   labels: { copy: string; copied: string };
 }) {
   const [tab, setTab] = useState<Tab>("html");
-  const code = tab === "html" ? html : css;
+  const tabs: Tab[] = js ? ["html", "css", "js"] : ["html", "css"];
+  const code = tab === "html" ? html : tab === "css" ? css : js ?? "";
 
   return (
     <div className="overflow-hidden rounded-lg border border-border bg-surface">
       <div className="flex items-center justify-between border-b border-border bg-bg px-2">
         <div role="tablist" aria-label="code" className="flex">
-          {(["html", "css"] as const).map((t) => (
+          {tabs.map((t) => (
             <button
               key={t}
               role="tab"

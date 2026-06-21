@@ -20,6 +20,7 @@ export default function ComponentCard({
       <ComponentPreview
         html={entry.html}
         css={entry.css}
+        js={entry.js}
         background={entry.previewBackground}
         title={entry.title[locale]}
       />
@@ -46,6 +47,7 @@ export default function ComponentCard({
           <CodeTabs
             html={entry.html}
             css={entry.css}
+            js={entry.js}
             labels={{ copy: dict.actions.copy, copied: dict.actions.copied }}
           />
         </div>

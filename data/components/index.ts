@@ -20,6 +20,7 @@ import accordions from "./accordions";
 import sliders from "./sliders";
 import breadcrumbs from "./breadcrumbs";
 import steppers from "./steppers";
+import interactive from "./interactive";
 
 // The single registry of every component on the site.
 export const components: ComponentEntry[] = [
@@ -41,6 +42,7 @@ export const components: ComponentEntry[] = [
   ...sliders,
   ...breadcrumbs,
   ...steppers,
+  ...interactive,
 ];
 
 export function getComponentsByCategory(categoryId: string): ComponentEntry[] {

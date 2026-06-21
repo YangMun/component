@@ -46,9 +46,13 @@ scripts/            icon generator
 
 1. Open the category's array file, e.g. `data/components/buttons.ts`.
 2. Append a `ComponentEntry` (id, slug, `category`, `style`, localized
-   title/description, tags, `html`, `css`, optional `previewBackground`,
+   title/description, tags, `html`, `css`, optional `js`, `previewBackground`,
    `featured`). `category` must exist in `data/categories.ts` and `style` in
    `data/styles.ts`.
+
+Add an optional `js` string to make a component interactive: it runs inside the
+sandboxed preview iframe and appears as a copyable **JS** tab. Scope the script
+to the component's root class so the snippet works when pasted as-is.
 
 That's it — the gallery, category pages, style pages, sitemap, and home page
 pick it up automatically. No page code changes required.

@@ -406,6 +406,41 @@ const buttons: ComponentEntry[] = [
 }
 .btn-pixel:active { transform: translateY(4px); box-shadow: 0 0 0 #15803d, 0 0 0 3px #0d0d18; }`,
   },
+  {
+    id: "buttons-material-ripple",
+    slug: "material-ripple",
+    category: "buttons",
+    style: "material",
+    title: { ko: "리플 버튼", en: "Ripple Button" },
+    description: {
+      ko: "클릭한 지점에서 물결이 퍼지는 머티리얼 리플 효과 버튼입니다(JS).",
+      en: "A material ripple button where a wave spreads from the click point (JS).",
+    },
+    tags: ["interactive", "ripple", "material", "click"],
+    html: `<button class="btn-ripple" type="button">눌러보기</button>`,
+    css: `.btn-ripple {
+  position: relative; overflow: hidden; padding: 13px 30px; border: none; border-radius: 10px;
+  font-size: 16px; font-weight: 600; color: #fff; background: #2563eb; cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37,99,235,0.4);
+}
+.btn-ripple .ripple {
+  position: absolute; border-radius: 50%; background: rgba(255,255,255,0.55);
+  transform: scale(0); animation: btn-ripple 0.6s ease-out; pointer-events: none;
+}
+@keyframes btn-ripple { to { transform: scale(2.5); opacity: 0; } }`,
+    js: `const btn = document.querySelector('.btn-ripple');
+btn.addEventListener('click', (e) => {
+  const r = btn.getBoundingClientRect();
+  const size = Math.max(r.width, r.height);
+  const span = document.createElement('span');
+  span.className = 'ripple';
+  span.style.width = span.style.height = size + 'px';
+  span.style.left = (e.clientX - r.left - size / 2) + 'px';
+  span.style.top = (e.clientY - r.top - size / 2) + 'px';
+  btn.appendChild(span);
+  setTimeout(() => span.remove(), 600);
+});`,
+  },
 ];
 
 export default buttons;

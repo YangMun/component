@@ -165,6 +165,15 @@ export const categories: Category[] = [
       en: "Stepper components that show progress through a multi-step flow.",
     },
   },
+  {
+    id: "interactive",
+    icon: "✨",
+    title: { ko: "인터랙티브", en: "Interactive" },
+    description: {
+      ko: "클릭·호버·입력에 실시간으로 반응하는 자바스크립트 인터랙티브 컴포넌트입니다.",
+      en: "JavaScript-powered components that react live to clicks, hovers and input.",
+    },
+  },
 ];
 
 export function getCategory(id: string): Category | undefined {

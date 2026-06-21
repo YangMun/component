@@ -22,6 +22,9 @@ export type ComponentEntry = {
   html: string;
   /** Copy-paste CSS. Selectors are scoped by a wrapper class per component. */
   css: string;
+  /** Optional vanilla JS that makes the component interactive. Runs inside the
+   * sandboxed preview iframe and is shown as a copyable "JS" tab. */
+  js?: string;
   /** Optional CSS background for the preview stage (e.g. dark for neon). */
   previewBackground?: string;
   /** When true, may be surfaced on the home page. */
