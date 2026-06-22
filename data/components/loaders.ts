@@ -300,6 +300,55 @@ const loaders: ComponentEntry[] = [
 }
 @keyframes loader-skel-shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }`,
   },
+  {
+    id: "loaders-bauhaus-shapes",
+    slug: "bauhaus-shapes",
+    category: "loaders",
+    style: "bauhaus",
+    title: { ko: "바우하우스 셰이프", en: "Bauhaus Shapes" },
+    description: {
+      ko: "원·삼각형·사각형 원색 도형이 차례로 튀어 오르는 기하학 로더입니다.",
+      en: "Primary circle, triangle and square shapes bounce in sequence — a geometric loader.",
+    },
+    tags: ["loader", "bauhaus", "geometric", "bounce", "바우하우스"],
+    html: `<div class="loader-bauhaus" role="status" aria-label="로딩 중">
+  <span class="lb-circle"></span>
+  <span class="lb-tri"></span>
+  <span class="lb-square"></span>
+</div>`,
+    css: `.loader-bauhaus { display: flex; align-items: flex-end; gap: 12px; height: 40px; }
+.loader-bauhaus span { animation: lb-bounce 0.9s ease-in-out infinite; }
+.lb-circle { width: 24px; height: 24px; border-radius: 50%; background: #e63946; }
+.lb-tri { width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-bottom: 24px solid #1d3557; animation-delay: 0.15s; }
+.lb-square { width: 24px; height: 24px; background: #ffce00; animation-delay: 0.3s; }
+@keyframes lb-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }`,
+  },
+  {
+    id: "loaders-aero-bubbles",
+    slug: "aero-bubbles",
+    category: "loaders",
+    style: "frutigeraero",
+    title: { ko: "에어로 버블", en: "Aero Bubbles" },
+    description: {
+      ko: "유리 광택이 도는 물방울이 차례로 떠오르는 2000년대 감성의 로더입니다.",
+      en: "Glossy water bubbles rise in sequence — a 2000s-flavored loader.",
+    },
+    tags: ["loader", "frutigeraero", "aqua", "bubbles", "에어로"],
+    previewBackground: "linear-gradient(180deg, #bfe9ff, #e6f9ff)",
+    html: `<div class="loader-aero" role="status" aria-label="로딩 중">
+  <span></span><span></span><span></span>
+</div>`,
+    css: `.loader-aero { display: flex; gap: 12px; }
+.loader-aero span {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, #5cc6ff 60%, #1f7fc4);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.9), 0 3px 8px rgba(31,127,196,0.4);
+  animation: lae-float 1.1s ease-in-out infinite;
+}
+.loader-aero span:nth-child(2) { animation-delay: 0.18s; }
+.loader-aero span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes lae-float { 0%, 100% { transform: translateY(0); opacity: 0.6; } 50% { transform: translateY(-14px); opacity: 1; } }`,
+  },
 ];
 
 export default loaders;

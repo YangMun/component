@@ -208,6 +208,36 @@ const alerts: ComponentEntry[] = [
 .alert-memphis strong { display: block; font-size: 15px; font-weight: 900; margin-bottom: 4px; }
 .alert-memphis p { margin: 0; font-size: 13px; font-weight: 600; }`,
   },
+  {
+    id: "alerts-artdeco-notice",
+    slug: "artdeco-notice",
+    category: "alerts",
+    style: "artdeco",
+    title: { ko: "아르데코 노티스", en: "Art Deco Notice" },
+    description: {
+      ko: "금빛 이중 테두리와 마름모 장식, 세리프 글자로 격조를 더한 알림 배너입니다.",
+      en: "An elegant notice banner with a double gold border, diamond ornaments and serif type.",
+    },
+    tags: ["alert", "artdeco", "gold", "luxury", "아르데코"],
+    previewBackground: "#0d1b2a",
+    html: `<div class="alert-artdeco" role="status">
+  <span class="alert-artdeco__mark">◆</span>
+  <div>
+    <strong>RESERVATION CONFIRMED</strong>
+    <p>귀하의 예약이 정상적으로 접수되었습니다.</p>
+  </div>
+</div>`,
+    css: `.alert-artdeco {
+  display: flex; align-items: center; gap: 14px; width: 300px; padding: 16px 18px;
+  border: 1px solid #c8a24c; color: #e9d8a6;
+  background: linear-gradient(180deg, #16263a, #0d1b2a);
+  box-shadow: inset 0 0 0 4px #0d1b2a, inset 0 0 0 5px rgba(200,162,76,0.5);
+  font-family: Georgia, "Times New Roman", serif;
+}
+.alert-artdeco__mark { color: #c8a24c; font-size: 18px; }
+.alert-artdeco strong { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; margin-bottom: 5px; }
+.alert-artdeco p { margin: 0; font-size: 12px; letter-spacing: 0.04em; color: rgba(233,216,166,0.78); }`,
+  },
 ];
 
 export default alerts;

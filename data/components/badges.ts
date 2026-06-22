@@ -266,6 +266,73 @@ const badges: ComponentEntry[] = [
   color: #fff; background: #ef4444; border: 2px solid #fff; box-sizing: content-box;
 }`,
   },
+  {
+    id: "badges-bauhaus-tag",
+    slug: "bauhaus-tag",
+    category: "badges",
+    style: "bauhaus",
+    title: { ko: "바우하우스 태그", en: "Bauhaus Tag" },
+    description: {
+      ko: "검정 테두리와 원색 블록, 원형 도형 액센트로 구성한 기하학 배지입니다.",
+      en: "A geometric badge with a black border, primary block and a circular accent.",
+    },
+    tags: ["badge", "bauhaus", "geometric", "primary", "바우하우스"],
+    html: `<span class="badge-bauhaus-tag">NEW</span>`,
+    css: `.badge-bauhaus-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 14px 6px 12px; border: 2.5px solid #1a1a1a; border-radius: 0;
+  font-family: "Futura", "Century Gothic", system-ui, sans-serif;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: #1a1a1a;
+  background: #ffce00; box-shadow: 3px 3px 0 #1a1a1a;
+}
+.badge-bauhaus-tag::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #e63946; }`,
+  },
+  {
+    id: "badges-artdeco-chip",
+    slug: "artdeco-chip",
+    category: "badges",
+    style: "artdeco",
+    title: { ko: "아르데코 칩", en: "Art Deco Chip" },
+    description: {
+      ko: "금빛 테두리와 마름모 장식, 세리프 글자로 럭셔리 감성을 담은 배지입니다.",
+      en: "A luxury badge with a gold border, diamond ornaments and serif lettering.",
+    },
+    tags: ["badge", "artdeco", "gold", "luxury", "아르데코"],
+    previewBackground: "#0d1b2a",
+    html: `<span class="badge-artdeco-chip">PREMIUM</span>`,
+    css: `.badge-artdeco-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 18px; border: 1px solid #c8a24c; border-radius: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.26em; text-indent: 0.26em;
+  color: #e9d8a6; background: linear-gradient(180deg, #16263a, #0d1b2a);
+  box-shadow: inset 0 0 0 3px #0d1b2a, inset 0 0 0 4px rgba(200,162,76,0.5);
+}
+.badge-artdeco-chip::before, .badge-artdeco-chip::after { content: "◆"; font-size: 8px; color: #c8a24c; text-indent: 0; }`,
+  },
+  {
+    id: "badges-aero-orb",
+    slug: "aero-orb",
+    category: "badges",
+    style: "frutigeraero",
+    title: { ko: "에어로 오브", en: "Aero Orb" },
+    description: {
+      ko: "유리 광택이 도는 둥근 아쿠아 배지로, 위쪽에 물방울 하이라이트가 있습니다.",
+      en: "A glossy rounded aqua badge with a glassy highlight across the top.",
+    },
+    tags: ["badge", "frutigeraero", "aqua", "glossy", "에어로"],
+    previewBackground: "linear-gradient(180deg, #bfe9ff, #e6f9ff)",
+    html: `<span class="badge-aero-orb">ONLINE</span>`,
+    css: `.badge-aero-orb {
+  position: relative; overflow: hidden; display: inline-block;
+  padding: 6px 16px; border: 1px solid #1f7fc4; border-radius: 9999px;
+  font-family: "Segoe UI", system-ui, sans-serif; font-size: 12px; font-weight: 700;
+  color: #fff; text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  background: linear-gradient(180deg, #6ed06a 0%, #36a832 50%, #2a8c27 51%, #36a832 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 2px 6px rgba(42,140,39,0.45);
+}
+.badge-aero-orb::before { content: ""; position: absolute; top: 1px; left: 6%; width: 88%; height: 45%; border-radius: 9999px; background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0)); }`,
+  },
 ];
 
 export default badges;

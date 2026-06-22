@@ -571,6 +571,136 @@ btn.addEventListener('click', (e) => {
 }
 .btn-fab:hover { transform: translateY(-3px) rotate(90deg); box-shadow: 0 10px 24px rgba(37,99,235,0.6); }`,
   },
+  {
+    id: "buttons-bauhaus-block",
+    slug: "bauhaus-block",
+    category: "buttons",
+    style: "bauhaus",
+    title: { ko: "바우하우스 블록", en: "Bauhaus Block" },
+    description: {
+      ko: "노란 사각형 위에 빨간 원이 얹힌 검정 테두리 버튼으로, 누르면 하드 섀도가 사라집니다.",
+      en: "A black-bordered yellow block with a red circle accent; the hard shadow collapses on press.",
+    },
+    tags: ["bauhaus", "geometric", "primary", "block", "바우하우스"],
+    featured: true,
+    html: `<button class="btn-bauhaus-block">시작하기</button>`,
+    css: `.btn-bauhaus-block {
+  position: relative;
+  padding: 14px 30px 14px 46px;
+  border: 3px solid #1a1a1a;
+  border-radius: 0;
+  font-family: "Futura", "Century Gothic", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  background: #ffce00;
+  cursor: pointer;
+  box-shadow: 6px 6px 0 #1a1a1a;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-bauhaus-block::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e63946;
+}
+.btn-bauhaus-block:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0 #1a1a1a; }
+.btn-bauhaus-block:active { transform: translate(6px, 6px); box-shadow: 0 0 0 #1a1a1a; }`,
+  },
+  {
+    id: "buttons-artdeco-gold",
+    slug: "artdeco-gold",
+    category: "buttons",
+    style: "artdeco",
+    title: { ko: "아르데코 골드", en: "Art Deco Gold" },
+    description: {
+      ko: "이중 금빛 테두리와 모서리 장식, 우아한 세리프로 1920년대 럭셔리 감성을 살린 버튼입니다.",
+      en: "A double gold frame with corner ornaments and an elegant serif for 1920s luxury.",
+    },
+    tags: ["artdeco", "gold", "luxury", "serif", "아르데코"],
+    featured: true,
+    previewBackground: "#0d1b2a",
+    html: `<button class="btn-artdeco-gold"><span>EXPLORE</span></button>`,
+    css: `.btn-artdeco-gold {
+  position: relative;
+  padding: 16px 40px;
+  border: 1px solid #c8a24c;
+  border-radius: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
+  color: #e9d8a6;
+  background: linear-gradient(180deg, #16263a, #0d1b2a);
+  cursor: pointer;
+  box-shadow: inset 0 0 0 4px #0d1b2a, inset 0 0 0 5px rgba(200,162,76,0.55);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+.btn-artdeco-gold::before,
+.btn-artdeco-gold::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #c8a24c;
+  transform: rotate(45deg);
+  background: #0d1b2a;
+}
+.btn-artdeco-gold::before { left: 12px; top: 50%; margin-top: -5px; }
+.btn-artdeco-gold::after { right: 12px; top: 50%; margin-top: -5px; }
+.btn-artdeco-gold:hover { color: #fff8e7; background: linear-gradient(180deg, #1d3350, #122236); }`,
+  },
+  {
+    id: "buttons-aero-glossy",
+    slug: "aero-glossy",
+    category: "buttons",
+    style: "frutigeraero",
+    title: { ko: "에어로 글로시", en: "Aero Glossy" },
+    description: {
+      ko: "위쪽에 유리 광택 하이라이트가 도는 2000년대 Web 2.0 감성의 아쿠아 버튼입니다.",
+      en: "A 2000s Web 2.0 aqua button with a glassy gloss highlight across the top.",
+    },
+    tags: ["frutigeraero", "aqua", "glossy", "web2", "에어로"],
+    featured: true,
+    previewBackground: "linear-gradient(180deg, #aee4ff, #d8f3ff)",
+    html: `<button class="btn-aero-glossy">Download</button>`,
+    css: `.btn-aero-glossy {
+  position: relative;
+  overflow: hidden;
+  padding: 13px 30px;
+  border: 1px solid #1f7fc4;
+  border-radius: 11px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+  cursor: pointer;
+  background: linear-gradient(180deg, #5cc6ff 0%, #2a93e0 50%, #1f7fc4 51%, #2a93e0 100%);
+  box-shadow: 0 3px 8px rgba(31,127,196,0.5), inset 0 1px 0 rgba(255,255,255,0.7);
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+.btn-aero-glossy::before {
+  content: "";
+  position: absolute;
+  top: 1px; left: 3%;
+  width: 94%;
+  height: 45%;
+  border-radius: 9px 9px 50% 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.1));
+  pointer-events: none;
+}
+.btn-aero-glossy:hover { filter: brightness(1.08); }
+.btn-aero-glossy:active { transform: translateY(1px); }`,
+  },
 ];
 
 export default buttons;

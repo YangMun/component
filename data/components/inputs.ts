@@ -288,6 +288,68 @@ const inputs: ComponentEntry[] = [
 }
 .field-otp input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }`,
   },
+  {
+    id: "inputs-bauhaus-field",
+    slug: "bauhaus-field",
+    category: "inputs",
+    style: "bauhaus",
+    title: { ko: "바우하우스 필드", en: "Bauhaus Field" },
+    description: {
+      ko: "검정 테두리와 하드 섀도, 원색 라벨 점으로 구성한 기하학 입력 필드입니다.",
+      en: "A geometric input field with a black border, hard shadow and a primary-color label dot.",
+    },
+    tags: ["input", "bauhaus", "geometric", "field", "바우하우스"],
+    html: `<div class="field-bauhaus">
+  <label for="fb-name">NAME</label>
+  <input id="fb-name" type="text" placeholder="이름을 입력하세요" />
+</div>`,
+    css: `.field-bauhaus { width: 240px; font-family: "Futura", "Century Gothic", system-ui, sans-serif; }
+.field-bauhaus label {
+  display: inline-flex; align-items: center; gap: 6px; margin-bottom: 8px;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.12em; color: #1a1a1a;
+}
+.field-bauhaus label::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #e63946; }
+.field-bauhaus input {
+  width: 100%; padding: 12px 14px; box-sizing: border-box;
+  border: 3px solid #1a1a1a; border-radius: 0; background: #faf3e0;
+  font-size: 14px; color: #1a1a1a; outline: none;
+  box-shadow: 4px 4px 0 #1a1a1a; transition: box-shadow 0.12s ease, transform 0.12s ease;
+}
+.field-bauhaus input::placeholder { color: #9a8f76; }
+.field-bauhaus input:focus { background: #ffce00; box-shadow: 4px 4px 0 #1d3557; }`,
+  },
+  {
+    id: "inputs-aero-search",
+    slug: "aero-search",
+    category: "inputs",
+    style: "frutigeraero",
+    title: { ko: "에어로 서치", en: "Aero Search" },
+    description: {
+      ko: "유리 광택과 둥근 알약 모양, 아쿠아 포커스 글로우가 도는 2000년대 감성 검색 입력창입니다.",
+      en: "A glossy pill-shaped search input with an aqua focus glow for a 2000s feel.",
+    },
+    tags: ["input", "frutigeraero", "aqua", "search", "에어로"],
+    previewBackground: "linear-gradient(180deg, #bfe9ff, #e6f9ff)",
+    html: `<div class="field-aero">
+  <span class="field-aero__icon">🔍</span>
+  <input type="search" placeholder="검색어를 입력하세요" />
+</div>`,
+    css: `.field-aero {
+  position: relative; width: 250px; display: flex; align-items: center;
+  border: 1px solid #7fb6dc; border-radius: 9999px;
+  background: linear-gradient(180deg, #ffffff, #e8f6ff);
+  box-shadow: inset 0 1px 3px rgba(31,127,196,0.25), 0 1px 0 rgba(255,255,255,0.9);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.field-aero__icon { padding-left: 14px; font-size: 14px; opacity: 0.7; }
+.field-aero input {
+  flex: 1; width: 100%; padding: 11px 16px 11px 8px;
+  border: none; background: transparent; outline: none;
+  font-family: "Segoe UI", system-ui, sans-serif; font-size: 14px; color: #0b4a72;
+}
+.field-aero input::placeholder { color: #6ba2c6; }
+.field-aero:focus-within { border-color: #1f7fc4; box-shadow: inset 0 1px 3px rgba(31,127,196,0.25), 0 0 0 3px rgba(92,198,255,0.45); }`,
+  },
 ];
 
 export default inputs;
