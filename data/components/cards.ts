@@ -532,6 +532,146 @@ c.addEventListener('mouseleave', () => {
 .card-bento__c { background: #22c55e; }
 .card-bento__d { grid-column: span 2; background: #0f172a; }`,
   },
+  {
+    id: "cards-bauhaus-geo",
+    slug: "bauhaus-geo",
+    category: "cards",
+    style: "bauhaus",
+    title: { ko: "바우하우스 지오", en: "Bauhaus Geo" },
+    description: {
+      ko: "원·삼각형·사각형 원색 도형 헤더와 검정 테두리로 구성한 모던 기하 카드입니다.",
+      en: "A modernist card with a primary-shape header (circle, triangle, square) and bold black borders.",
+    },
+    tags: ["bauhaus", "geometric", "card", "primary", "바우하우스"],
+    featured: true,
+    html: `<div class="card-bauhaus-geo">
+  <div class="card-bauhaus-geo__art">
+    <span class="cbg-circle"></span>
+    <span class="cbg-tri"></span>
+    <span class="cbg-square"></span>
+  </div>
+  <div class="card-bauhaus-geo__body">
+    <h3>FORM &amp; FUNCTION</h3>
+    <p>기하학적 형태와 원색으로 완성한 모던 디자인 카드.</p>
+  </div>
+</div>`,
+    css: `.card-bauhaus-geo {
+  width: 250px;
+  border: 3px solid #1a1a1a;
+  background: #faf3e0;
+  box-shadow: 8px 8px 0 #1a1a1a;
+  font-family: "Futura", "Century Gothic", system-ui, sans-serif;
+}
+.card-bauhaus-geo__art {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 100px;
+  padding: 0 18px 16px;
+  border-bottom: 3px solid #1a1a1a;
+  background: #ffce00;
+}
+.cbg-circle { width: 40px; height: 40px; border-radius: 50%; background: #e63946; }
+.cbg-tri { width: 0; height: 0; border-left: 22px solid transparent; border-right: 22px solid transparent; border-bottom: 40px solid #1d3557; }
+.cbg-square { width: 38px; height: 38px; background: #1a1a1a; }
+.card-bauhaus-geo__body { padding: 16px 18px 20px; }
+.card-bauhaus-geo__body h3 { margin: 0 0 8px; font-size: 16px; font-weight: 800; letter-spacing: 0.08em; color: #1a1a1a; }
+.card-bauhaus-geo__body p { margin: 0; font-size: 13px; line-height: 1.5; color: #444; }`,
+  },
+  {
+    id: "cards-artdeco-frame",
+    slug: "artdeco-frame",
+    category: "cards",
+    style: "artdeco",
+    title: { ko: "아르데코 프레임", en: "Art Deco Frame" },
+    description: {
+      ko: "금빛 이중 프레임과 상단 선버스트 문양으로 럭셔리 호텔 감성을 담은 카드입니다.",
+      en: "A luxury card with a double gold frame and a sunburst motif at the top.",
+    },
+    tags: ["artdeco", "gold", "luxury", "card", "아르데코"],
+    featured: true,
+    previewBackground: "#0d1b2a",
+    html: `<div class="card-artdeco-frame">
+  <div class="card-artdeco-frame__fan"></div>
+  <h3>THE GRAND</h3>
+  <div class="card-artdeco-frame__rule"></div>
+  <p>EST. 1925</p>
+  <span class="card-artdeco-frame__sub">PRIVATE MEMBERS CLUB</span>
+</div>`,
+    css: `.card-artdeco-frame {
+  position: relative;
+  width: 230px;
+  padding: 34px 26px 28px;
+  text-align: center;
+  border: 1px solid #c8a24c;
+  background: linear-gradient(180deg, #16263a, #0d1b2a);
+  box-shadow: inset 0 0 0 5px #0d1b2a, inset 0 0 0 6px rgba(200,162,76,0.5);
+  font-family: Georgia, "Times New Roman", serif;
+  color: #e9d8a6;
+}
+.card-artdeco-frame__fan {
+  width: 56px; height: 28px; margin: 0 auto 18px;
+  border-radius: 56px 56px 0 0;
+  background: repeating-conic-gradient(from 180deg at 50% 100%, #c8a24c 0deg 9deg, transparent 9deg 18deg);
+}
+.card-artdeco-frame h3 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: 0.28em; text-indent: 0.28em; }
+.card-artdeco-frame__rule { width: 70px; height: 1px; margin: 12px auto; background: #c8a24c; position: relative; }
+.card-artdeco-frame__rule::before { content: ""; position: absolute; left: 50%; top: -3px; width: 7px; height: 7px; margin-left: -3.5px; background: #c8a24c; transform: rotate(45deg); }
+.card-artdeco-frame p { margin: 0; font-size: 13px; letter-spacing: 0.3em; text-indent: 0.3em; color: #c8a24c; }
+.card-artdeco-frame__sub { display: block; margin-top: 10px; font-size: 10px; letter-spacing: 0.24em; text-indent: 0.24em; color: rgba(233,216,166,0.7); }`,
+  },
+  {
+    id: "cards-aero-glass",
+    slug: "aero-glass",
+    category: "cards",
+    style: "frutigeraero",
+    title: { ko: "에어로 글래스 카드", en: "Aero Glass Card" },
+    description: {
+      ko: "하늘빛 그라데이션과 유리 광택, 물방울 하이라이트로 2000년대 감성을 살린 카드입니다.",
+      en: "A sky-gradient card with a glossy sheen and bubble highlights for that 2000s feel.",
+    },
+    tags: ["frutigeraero", "aqua", "glossy", "card", "에어로"],
+    featured: true,
+    previewBackground: "linear-gradient(180deg, #bfe9ff, #e6f9ff)",
+    html: `<div class="card-aero-glass">
+  <div class="card-aero-glass__icon">🌿</div>
+  <h3>Aero Cloud</h3>
+  <p>맑고 투명한 클라우드 동기화로 어디서나 안전하게.</p>
+  <button>Get Started</button>
+</div>`,
+    css: `.card-aero-glass {
+  position: relative;
+  overflow: hidden;
+  width: 230px;
+  padding: 22px 22px 24px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(146,214,255,0.55));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(31,127,196,0.35), inset 0 1px 0 rgba(255,255,255,0.9);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #0b4a72;
+}
+.card-aero-glass::before {
+  content: "";
+  position: absolute;
+  top: -40%; left: -10%;
+  width: 120%; height: 70%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+  pointer-events: none;
+}
+.card-aero-glass__icon { width: 54px; height: 54px; margin: 0 auto 12px; display: grid; place-items: center; font-size: 26px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #9fe0b0); box-shadow: inset 0 1px 2px rgba(255,255,255,0.9), 0 4px 10px rgba(31,127,196,0.3); }
+.card-aero-glass h3 { position: relative; margin: 0 0 6px; font-size: 19px; font-weight: 700; }
+.card-aero-glass p { position: relative; margin: 0 0 16px; font-size: 13px; line-height: 1.5; color: #2a6f9e; }
+.card-aero-glass button {
+  position: relative; padding: 9px 22px; border: 1px solid #1f7fc4; border-radius: 9px;
+  font-size: 13px; font-weight: 700; color: #fff; cursor: pointer; text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  background: linear-gradient(180deg, #5cc6ff, #2a93e0 51%, #1f7fc4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 2px 6px rgba(31,127,196,0.4);
+}`,
+  },
 ];
 
 export default cards;

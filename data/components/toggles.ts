@@ -230,6 +230,44 @@ const toggles: ComponentEntry[] = [
 .sw-holo input:checked + .sw-holo__track .sw-holo__thumb { left: 35px; }
 @keyframes sw-holo { to { background-position: 300% 0; } }`,
   },
+  {
+    id: "toggles-aero-glossy",
+    slug: "aero-glossy",
+    category: "toggles",
+    style: "frutigeraero",
+    title: { ko: "에어로 글로시 스위치", en: "Aero Glossy Switch" },
+    description: {
+      ko: "유리 광택 손잡이와 아쿠아 트랙으로 켜고 끄는 2000년대 감성의 토글 스위치입니다.",
+      en: "A 2000s glossy toggle with a glassy knob and an aqua track.",
+    },
+    tags: ["toggle", "frutigeraero", "aqua", "glossy", "에어로"],
+    previewBackground: "linear-gradient(180deg, #bfe9ff, #e6f9ff)",
+    html: `<label class="sw-aero">
+  <input type="checkbox" checked />
+  <span class="sw-aero__track"><span class="sw-aero__thumb"></span></span>
+</label>`,
+    css: `.sw-aero { display: inline-block; cursor: pointer; }
+.sw-aero input { display: none; }
+.sw-aero__track {
+  display: block; width: 66px; height: 32px; border-radius: 9999px; position: relative;
+  border: 1px solid #9aa5ad;
+  background: linear-gradient(180deg, #c2cdd4, #eef3f6);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.sw-aero__thumb {
+  position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: radial-gradient(circle at 35% 28%, #fff, #d3dde3 70%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 4px rgba(0,0,0,0.3);
+  transition: left 0.3s ease;
+}
+.sw-aero input:checked + .sw-aero__track {
+  border-color: #1f7fc4;
+  background: linear-gradient(180deg, #5cc6ff, #2a93e0);
+}
+.sw-aero input:checked + .sw-aero__track .sw-aero__thumb { left: 37px; }`,
+  },
 ];
 
 export default toggles;

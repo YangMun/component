@@ -163,6 +163,36 @@ export const styles: Style[] = [
       en: "Built from two strongly contrasting colors for a bold, restrained look.",
     },
   },
+  {
+    id: "bauhaus",
+    icon: "🟥",
+    accent: "#e63946",
+    title: { ko: "바우하우스", en: "Bauhaus" },
+    description: {
+      ko: "원·삼각형·사각형의 기하 도형과 빨강·파랑·노랑 원색, 검정 선으로 구성한 모던 디자인 스타일입니다.",
+      en: "Geometric circles, triangles and squares with primary red, blue and yellow and black lines — classic modernist design.",
+    },
+  },
+  {
+    id: "artdeco",
+    icon: "🏛️",
+    accent: "#c8a24c",
+    title: { ko: "아르데코", en: "Art Deco" },
+    description: {
+      ko: "금빛 라인과 대칭 기하, 우아한 세리프로 1920년대 럭셔리 감성을 담은 스타일입니다.",
+      en: "Gold linework, symmetric geometry and elegant serifs capturing 1920s luxury.",
+    },
+  },
+  {
+    id: "frutigeraero",
+    icon: "💧",
+    accent: "#38b6ff",
+    title: { ko: "프루티거 에어로", en: "Frutiger Aero" },
+    description: {
+      ko: "하늘·물·유리의 광택과 물방울 하이라이트로 2000년대 Web 2.0 감성을 살린 스타일입니다.",
+      en: "Glossy sky-and-water surfaces with glassy highlights that revive the 2000s Web 2.0 vibe.",
+    },
+  },
 ];
 
 export function getStyle(id: string): Style | undefined {
