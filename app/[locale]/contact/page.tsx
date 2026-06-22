@@ -53,22 +53,25 @@ export default function ContactPage({
   const c = content[params.locale];
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="text-3xl font-bold text-fg">{c.title}</h1>
+    <article className="mx-auto max-w-measure px-5 py-14 md:px-8">
+      <header className="border-b border-border pb-7">
+        <p className="eyebrow mb-4">{c.emailLabel}</p>
+        <h1 className="font-display text-4xl font-bold tracking-tight text-fg">
+          {c.title}
+        </h1>
+      </header>
       {c.intro.map((p, i) => (
-        <p key={i} className="mt-4 leading-relaxed text-muted">
+        <p key={i} className="mt-5 text-lg leading-relaxed text-muted">
           {p}
         </p>
       ))}
-      <div className="mt-8 rounded-xl border border-border bg-surface p-6">
-        <p className="text-sm font-semibold text-muted">{c.emailLabel}</p>
-        <a
-          href={`mailto:${contactEmail}`}
-          className="mt-1 inline-block text-lg font-medium text-brand hover:underline"
-        >
-          {contactEmail}
-        </a>
-      </div>
+      <a
+        href={`mailto:${contactEmail}`}
+        className="mt-8 flex items-center justify-between gap-4 border border-border p-6 transition-colors hover:border-fg"
+      >
+        <span className="eyebrow">{c.emailLabel}</span>
+        <span className="mono text-lg font-bold text-fg">{contactEmail}</span>
+      </a>
       <p className="mt-4 text-sm text-muted">{c.responseNote}</p>
     </article>
   );

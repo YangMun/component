@@ -5,7 +5,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { localeHref, cn } from "@/lib/utils";
 
-// Style chips reused on the styles index and style detail pages.
+// Editorial style chips: squared, hairline-bordered, ink-filled when active.
 export default function StyleNav({
   locale,
   dict,
@@ -15,6 +15,11 @@ export default function StyleNav({
   dict: Dictionary;
   activeId?: string;
 }) {
+  const base =
+    "inline-flex items-center gap-1.5 border px-3.5 py-2 text-sm transition-colors";
+  const inactive = "border-border text-muted hover:border-fg hover:text-fg";
+  const active = "border-fg bg-fg text-bg";
+
   return (
     <nav aria-label={dict.gallery.allStyles}>
       <ul className="flex flex-wrap gap-2">
@@ -22,34 +27,24 @@ export default function StyleNav({
           <Link
             href={localeHref(locale, "/styles")}
             aria-current={!activeId ? "page" : undefined}
-            className={cn(
-              "inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
-              !activeId
-                ? "border-brand bg-brand text-brand-fg"
-                : "border-border text-muted hover:text-fg"
-            )}
+            className={cn(base, !activeId ? active : inactive)}
           >
             {dict.gallery.allStyles}
           </Link>
         </li>
         {styles.map((style) => {
-          const active = style.id === activeId;
+          const isActive = style.id === activeId;
           return (
             <li key={style.id}>
               <Link
                 href={localeHref(locale, `/styles/${style.id}`)}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
-                  active
-                    ? "border-brand bg-brand text-brand-fg"
-                    : "border-border text-muted hover:text-fg"
-                )}
+                aria-current={isActive ? "page" : undefined}
+                className={cn(base, isActive ? active : inactive)}
               >
                 <span aria-hidden="true">{style.icon}</span>
                 {style.title[locale]}
-                <span className="text-xs opacity-70">
-                  ({getStyleCount(style.id)})
+                <span className="mono text-xs opacity-70">
+                  {getStyleCount(style.id)}
                 </span>
               </Link>
             </li>

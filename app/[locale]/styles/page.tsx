@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { buildPageMetadata } from "@/lib/metadata";
-import { localeHref, formatCount, cn } from "@/lib/utils";
+import { localeHref, formatCount } from "@/lib/utils";
 import { styles } from "@/data/styles";
 import { getStyleCount } from "@/data/components";
+import PageHeading from "@/components/ui/PageHeading";
 
 export function generateMetadata({
   params,
@@ -33,32 +34,40 @@ export default function StylesPage({
   const dict = getDictionary(locale);
 
   return (
-    <div className="mx-auto max-w-content px-4 py-12">
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold text-fg">{dict.gallery.styleTitle}</h1>
-        <p className="mt-2 max-w-2xl text-muted">{dict.gallery.styleSubtitle}</p>
-      </header>
+    <div className="mx-auto max-w-content px-5 py-12 md:px-8">
+      <PageHeading
+        eyebrow={`${styles.length} ${dict.home.stats.styles}`}
+        title={dict.gallery.styleTitle}
+        description={dict.gallery.styleSubtitle}
+      />
 
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {styles.map((style) => (
+      <ul className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        {styles.map((style, i) => (
           <li key={style.id}>
             <Link
               href={localeHref(locale, `/styles/${style.id}`)}
-              className={cn(
-                "block h-full rounded-xl border border-border bg-surface p-6 transition-colors hover:border-brand"
-              )}
-              style={{ borderTopColor: style.accent, borderTopWidth: 3 }}
+              className="group flex h-full flex-col bg-surface p-6 transition-colors hover:bg-bg"
             >
-              <span className="text-3xl" aria-hidden="true">
-                {style.icon}
-              </span>
-              <h2 className="mt-3 font-semibold text-fg">
+              <span
+                aria-hidden="true"
+                className="mb-5 block h-1 w-10"
+                style={{ background: style.accent }}
+              />
+              <div className="flex items-center justify-between">
+                <span className="text-2xl" aria-hidden="true">
+                  {style.icon}
+                </span>
+                <span className="mono text-xs text-muted">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <h2 className="mt-4 font-display text-xl font-bold text-fg">
                 {style.title[locale]}
               </h2>
-              <p className="mt-1 text-sm leading-relaxed text-muted">
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                 {style.description[locale]}
               </p>
-              <p className="mt-3 text-xs font-medium text-muted">
+              <p className="eyebrow mt-5">
                 {formatCount(dict.gallery.itemsCount, getStyleCount(style.id))}
               </p>
             </Link>

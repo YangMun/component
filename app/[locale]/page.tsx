@@ -9,11 +9,14 @@ import { absoluteUrl } from "@/lib/site";
 import { categories } from "@/data/categories";
 import { styles } from "@/data/styles";
 import {
+  components,
   getComponentCount,
   getStyleCount,
   getFeaturedComponents,
 } from "@/data/components";
 import ComponentCard from "@/components/gallery/ComponentCard";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Marquee from "@/components/layout/Marquee";
 import JsonLd from "@/components/seo/JsonLd";
 
 export function generateMetadata({
@@ -37,6 +40,12 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const dict = getDictionary(locale);
   const featured = getFeaturedComponents(6);
 
+  const stats = [
+    { value: components.length, label: dict.home.stats.components },
+    { value: categories.length, label: dict.home.stats.categories },
+    { value: styles.length, label: dict.home.stats.styles },
+  ];
+
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -52,106 +61,133 @@ export default function HomePage({ params }: { params: { locale: string } }) {
 
       {/* Hero */}
       <section className="border-b border-border">
-        <div className="mx-auto max-w-content px-4 py-20 text-center sm:py-28">
-          <p className="mb-4 inline-block rounded-full border border-border px-3 py-1 text-xs font-medium text-muted">
-            {dict.meta.tagline}
-          </p>
-          <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-fg sm:text-5xl">
-            {dict.home.heroTitle}
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            {dict.home.heroSubtitle}
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href={localeHref(locale, "/components")}
-              className="rounded-lg bg-brand px-6 py-3 font-semibold text-brand-fg transition-opacity hover:opacity-90"
-            >
-              {dict.home.heroCtaPrimary}
-            </Link>
-            <Link
-              href={localeHref(locale, "/about")}
-              className="rounded-lg border border-border px-6 py-3 font-semibold text-fg transition-colors hover:bg-surface"
-            >
-              {dict.home.heroCtaSecondary}
-            </Link>
+        <div className="mx-auto grid max-w-content gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.7fr_1fr] lg:items-end">
+          <div>
+            <p className="eyebrow mb-6">◆ {dict.home.heroEyebrow}</p>
+            <h1 className="display text-display text-fg">
+              {dict.home.heroTitle}
+            </h1>
+            <p className="mt-7 max-w-measure text-lg leading-relaxed text-muted">
+              {dict.home.heroSubtitle}
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-6">
+              <Link
+                href={localeHref(locale, "/components")}
+                className="bg-brand px-7 py-3.5 font-medium text-brand-fg transition-opacity hover:opacity-80"
+              >
+                {dict.home.heroCtaPrimary}
+              </Link>
+              <Link
+                href={localeHref(locale, "/about")}
+                className="border-b border-fg pb-1 font-medium text-fg transition-opacity hover:opacity-60"
+              >
+                {dict.home.heroCtaSecondary}
+              </Link>
+            </div>
           </div>
+
+          {/* Index / stats column */}
+          <dl className="grid grid-cols-3 gap-px border border-border bg-border lg:grid-cols-1">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-bg p-5">
+                <dt className="eyebrow">{s.label}</dt>
+                <dd className="mono mt-2 text-3xl font-bold text-fg">
+                  {String(s.value).padStart(2, "0")}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="mx-auto max-w-content px-4 py-16">
-        <h2 className="text-center text-2xl font-bold text-fg">
-          {dict.home.featuresTitle}
-        </h2>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {dict.home.features.map((feature) => (
+      {/* Style marquee */}
+      <Marquee items={styles.map((s) => s.title[locale])} />
+
+      {/* Capabilities — numbered editorial list */}
+      <section className="mx-auto max-w-content px-5 py-16 md:px-8 md:py-20">
+        <SectionHeading eyebrow="01 — 04" title={dict.home.featuresTitle} />
+        <ul className="mt-2">
+          {dict.home.features.map((feature, i) => (
             <li
               key={feature.title}
-              className="rounded-xl border border-border bg-surface p-6"
+              className="grid grid-cols-[auto_1fr] gap-5 border-b border-border py-7 md:grid-cols-[5rem_1fr_2fr] md:gap-8"
             >
-              <h3 className="font-semibold text-fg">{feature.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {feature.body}
-              </p>
+              <span className="mono text-sm text-muted">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="font-display text-xl font-bold text-fg">
+                {feature.title}
+              </h3>
+              <p className="leading-relaxed text-muted">{feature.body}</p>
             </li>
           ))}
         </ul>
       </section>
 
-      {/* Browse by category */}
-      <section className="mx-auto max-w-content px-4 pb-4">
-        <h2 className="text-2xl font-bold text-fg">
-          {dict.home.browseByCategory}
-        </h2>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category) => (
+      {/* Browse by category — table-of-contents index */}
+      <section className="mx-auto max-w-content px-5 pb-8 md:px-8">
+        <SectionHeading
+          eyebrow={dict.gallery.allCategories}
+          title={dict.home.browseByCategory}
+        />
+        <ul className="mt-2">
+          {categories.map((category, i) => (
             <li key={category.id}>
               <Link
                 href={localeHref(locale, `/components/${category.id}`)}
-                className="block h-full rounded-xl border border-border bg-surface p-6 transition-colors hover:border-brand"
+                className="group flex items-center gap-5 border-b border-border py-5 transition-colors hover:bg-surface"
               >
-                <span className="text-3xl" aria-hidden="true">
+                <span className="mono text-sm text-muted">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span aria-hidden="true" className="text-xl">
                   {category.icon}
                 </span>
-                <h3 className="mt-3 font-semibold text-fg">
+                <span className="font-display text-lg font-bold text-fg md:text-xl">
                   {category.title[locale]}
-                </h3>
-                <p className="mt-1 text-sm text-muted">
+                </span>
+                <span className="mono ml-auto text-sm text-muted">
                   {formatCount(
                     dict.gallery.itemsCount,
                     getComponentCount(category.id)
                   )}
-                </p>
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="text-muted transition-transform group-hover:translate-x-1 group-hover:text-fg"
+                >
+                  →
+                </span>
               </Link>
             </li>
           ))}
         </ul>
       </section>
 
-      {/* Browse by design style */}
-      <section className="mx-auto max-w-content px-4 pt-12">
-        <div className="flex items-end justify-between">
-          <h2 className="text-2xl font-bold text-fg">
-            {dict.home.browseByStyle}
-          </h2>
-          <Link
-            href={localeHref(locale, "/styles")}
-            className="text-sm font-medium text-brand hover:underline"
-          >
-            {dict.actions.viewAll} →
-          </Link>
-        </div>
-        <ul className="mt-6 flex flex-wrap gap-3">
+      {/* Browse by design style — editorial chips */}
+      <section className="mx-auto max-w-content px-5 py-16 md:px-8 md:py-20">
+        <SectionHeading
+          eyebrow={dict.gallery.allStyles}
+          title={dict.home.browseByStyle}
+          action={
+            <Link
+              href={localeHref(locale, "/styles")}
+              className="eyebrow transition-colors hover:text-fg"
+            >
+              {dict.actions.viewAll} →
+            </Link>
+          }
+        />
+        <ul className="mt-8 flex flex-wrap gap-2.5">
           {styles.map((style) => (
             <li key={style.id}>
               <Link
                 href={localeHref(locale, `/styles/${style.id}`)}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-fg transition-colors hover:border-brand"
+                className="inline-flex items-center gap-2 border border-border px-4 py-2 text-sm text-fg transition-colors hover:border-fg"
               >
                 <span aria-hidden="true">{style.icon}</span>
                 {style.title[locale]}
-                <span className="text-xs text-muted">
+                <span className="mono text-xs text-muted">
                   {getStyleCount(style.id)}
                 </span>
               </Link>
@@ -160,19 +196,20 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         </ul>
       </section>
 
-      {/* Featured components */}
-      <section className="mx-auto max-w-content px-4 py-16">
-        <div className="flex items-end justify-between">
-          <h2 className="text-2xl font-bold text-fg">
-            {dict.home.featuredTitle}
-          </h2>
-          <Link
-            href={localeHref(locale, "/components")}
-            className="text-sm font-medium text-brand hover:underline"
-          >
-            {dict.actions.viewAll} →
-          </Link>
-        </div>
+      {/* Featured — gallery wall */}
+      <section className="mx-auto max-w-content px-5 pb-20 md:px-8">
+        <SectionHeading
+          eyebrow="SELECTED WORKS"
+          title={dict.home.featuredTitle}
+          action={
+            <Link
+              href={localeHref(locale, "/components")}
+              className="eyebrow transition-colors hover:text-fg"
+            >
+              {dict.actions.viewAll} →
+            </Link>
+          }
+        />
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((entry) => (
             <ComponentCard

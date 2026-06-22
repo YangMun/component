@@ -5,7 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { components } from "@/data/components";
 import { localeHref, cn } from "@/lib/utils";
+import Logo from "@/components/brand/Logo";
 import ThemeToggle from "./ThemeToggle";
 import LocaleSwitcher from "./LocaleSwitcher";
 
@@ -31,18 +33,18 @@ export default function Header({
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-surface/80 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-content items-center justify-between gap-4 px-4">
+    <header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-content items-center justify-between gap-4 px-5 md:px-8">
         <Link
           href={localeHref(locale)}
-          className="flex items-center gap-2 text-lg font-bold text-fg"
+          className="text-fg transition-opacity hover:opacity-70"
+          aria-label={dict.meta.siteName}
         >
-          <span aria-hidden="true">🎨</span>
-          <span>{dict.meta.siteName}</span>
+          <Logo siteName={dict.meta.siteName} />
         </Link>
 
         <nav
-          className="hidden items-center gap-1 md:flex"
+          className="hidden items-center gap-7 md:flex"
           aria-label={dict.nav.components}
         >
           {links.map((link) => (
@@ -50,10 +52,8 @@ export default function Header({
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                isActive(link.href)
-                  ? "text-brand"
-                  : "text-muted hover:text-fg"
+                "eyebrow transition-colors hover:text-fg",
+                isActive(link.href) && "text-fg"
               )}
             >
               {link.label}
@@ -61,14 +61,17 @@ export default function Header({
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <span className="mono hidden text-xs text-muted lg:inline">
+            {String(components.length).padStart(3, "0")} ◆
+          </span>
           <div className="hidden md:block">
             <LocaleSwitcher current={locale} label={dict.langSwitch} />
           </div>
           <ThemeToggle label={dict.actions.toggleTheme} />
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-fg md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center border border-border text-fg md:hidden"
             aria-expanded={open}
             aria-label={open ? dict.actions.closeMenu : dict.actions.openMenu}
             onClick={() => setOpen((v) => !v)}
@@ -79,9 +82,9 @@ export default function Header({
       </div>
 
       {open && (
-        <div className="border-t border-border bg-surface md:hidden">
+        <div className="border-t border-border bg-bg md:hidden">
           <nav
-            className="mx-auto flex max-w-content flex-col gap-1 px-4 py-3"
+            className="mx-auto flex max-w-content flex-col px-5 py-2"
             aria-label={dict.nav.components}
           >
             {links.map((link) => (
@@ -90,16 +93,14 @@ export default function Header({
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium",
-                  isActive(link.href)
-                    ? "bg-bg text-brand"
-                    : "text-muted hover:text-fg"
+                  "eyebrow border-b border-border py-3.5 transition-colors hover:text-fg",
+                  isActive(link.href) && "text-fg"
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="mt-2 px-3">
+            <div className="py-4">
               <LocaleSwitcher current={locale} label={dict.langSwitch} />
             </div>
           </nav>
