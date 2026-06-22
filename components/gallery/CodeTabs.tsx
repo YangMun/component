@@ -23,7 +23,7 @@ export default function CodeTabs({
   const code = tab === "html" ? html : tab === "css" ? css : js ?? "";
 
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-surface">
+    <div className="min-w-0 overflow-hidden rounded-lg border border-border bg-surface">
       <div className="flex items-center justify-between border-b border-border bg-bg px-2">
         <div role="tablist" aria-label="code" className="flex">
           {tabs.map((t) => (
@@ -50,7 +50,7 @@ export default function CodeTabs({
           className="my-1"
         />
       </div>
-      <pre className="max-h-72 overflow-auto p-4 text-xs leading-relaxed">
+      <pre className="max-h-72 max-w-full overflow-auto p-4 text-xs leading-relaxed">
         <code className="font-mono text-fg">{code}</code>
       </pre>
     </div>
