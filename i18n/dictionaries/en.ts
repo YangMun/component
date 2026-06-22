@@ -28,6 +28,7 @@ const en: Dictionary = {
     toggleTheme: "Toggle theme",
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    installApp: "Install app",
   },
   home: {
     heroTitle: "Turn design inspiration into code, instantly",

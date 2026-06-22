@@ -8,6 +8,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { components } from "@/data/components";
 import { localeHref, cn } from "@/lib/utils";
 import Logo from "@/components/brand/Logo";
+import InstallButton from "@/components/pwa/InstallButton";
 import ThemeToggle from "./ThemeToggle";
 import LocaleSwitcher from "./LocaleSwitcher";
 
@@ -33,7 +34,7 @@ export default function Header({
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur standalone:pt-[env(safe-area-inset-top)]">
       <div className="mx-auto flex h-16 max-w-content items-center justify-between gap-4 px-5 md:px-8">
         <Link
           href={localeHref(locale)}
@@ -65,13 +66,14 @@ export default function Header({
           <span className="mono hidden text-xs text-muted lg:inline">
             {String(components.length).padStart(3, "0")} ◆
           </span>
+          <InstallButton label={dict.actions.installApp} />
           <div className="hidden md:block">
             <LocaleSwitcher current={locale} label={dict.langSwitch} />
           </div>
           <ThemeToggle label={dict.actions.toggleTheme} />
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center border border-border text-fg md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center border border-border text-fg md:hidden standalone:hidden"
             aria-expanded={open}
             aria-label={open ? dict.actions.closeMenu : dict.actions.openMenu}
             onClick={() => setOpen((v) => !v)}

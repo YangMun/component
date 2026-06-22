@@ -10,11 +10,12 @@ export default function manifest(): MetadataRoute.Manifest {
     name: `${ko.meta.siteName} — ${ko.meta.tagline}`,
     short_name: ko.meta.siteName,
     description: ko.meta.description,
-    start_url: `/${defaultLocale}/`,
+    // ?source=pwa lets the launched app reliably self-identify as standalone.
+    start_url: `/${defaultLocale}/?source=pwa`,
     scope: "/",
     display: "standalone",
-    background_color: "#f8fafc",
-    theme_color: "#7c3aed",
+    background_color: "#f4f2ea",
+    theme_color: "#f4f2ea",
     lang: defaultLocale,
     icons: [
       {
