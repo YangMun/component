@@ -27,6 +27,7 @@ import { siteUrl, absoluteUrl } from "@/lib/site";
 import { localeHref } from "@/lib/utils";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import BottomNav from "@/components/layout/BottomNav";
 
 // Pre-render one HTML tree per locale (required for static export).
 export function generateStaticParams() {
@@ -82,6 +83,7 @@ export async function generateMetadata({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f4f2ea" },
     { media: "(prefers-color-scheme: dark)", color: "#14130f" },
@@ -93,6 +95,12 @@ const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');var
 
 // Registers the service worker so the site is installable as a PWA.
 const swRegisterScript = `if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}`;
+
+// Detect web vs. installed-app BEFORE paint and record it on <html data-display>.
+// The manifest's start_url carries ?source=pwa, which we pin in sessionStorage so
+// the app stays "standalone" across in-app navigation even if the media query is
+// briefly unreliable. CSS (standalone:/browser: variants) keys off this attribute.
+const displayModeScript = `(function(){try{var p=new URLSearchParams(location.search);if(p.get('source')==='pwa'){sessionStorage.setItem('pwa','1');}var sa=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true||sessionStorage.getItem('pwa')==='1';document.documentElement.dataset.display=sa?'standalone':'browser';}catch(e){}})();`;
 
 export default function LocaleLayout({
   children,
@@ -111,10 +119,11 @@ export default function LocaleLayout({
       suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: displayModeScript }} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script dangerouslySetInnerHTML={{ __html: swRegisterScript }} />
       </head>
-      <body className="flex min-h-screen flex-col">
+      <body className="flex min-h-screen flex-col standalone:pb-[calc(4.5rem_+_env(safe-area-inset-bottom))]">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-brand-fg"
@@ -126,6 +135,7 @@ export default function LocaleLayout({
           {children}
         </main>
         <Footer locale={locale} dict={dict} />
+        <BottomNav locale={locale} dict={dict} />
       </body>
     </html>
   );

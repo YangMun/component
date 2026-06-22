@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: "class",
@@ -57,7 +58,15 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // `standalone:` / `browser:` variants keyed off data-display on <html>,
+    // which an inline head script sets before paint (see app/[locale]/layout).
+    // CSS-driven so the web vs. installed-app distinction is flicker-free.
+    plugin(({ addVariant }) => {
+      addVariant("standalone", '[data-display="standalone"] &');
+      addVariant("browser", '[data-display="browser"] &');
+    }),
+  ],
 };
 
 export default config;

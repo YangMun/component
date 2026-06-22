@@ -27,6 +27,7 @@ const ko = {
     toggleTheme: "테마 전환",
     openMenu: "메뉴 열기",
     closeMenu: "메뉴 닫기",
+    installApp: "앱 설치",
   },
   home: {
     heroTitle: "디자인 영감을 코드로 바로",
