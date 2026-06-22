@@ -110,7 +110,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
           {dict.home.features.map((feature, i) => (
             <li
               key={feature.title}
-              className="grid grid-cols-[auto_1fr] gap-5 border-b border-border py-7 md:grid-cols-[5rem_1fr_2fr] md:gap-8"
+              className="grid grid-cols-[2.5rem_1fr] gap-x-4 gap-y-2 border-b border-border py-7 md:grid-cols-[5rem_1fr_2fr] md:items-baseline md:gap-8"
             >
               <span className="mono text-sm text-muted">
                 {String(i + 1).padStart(2, "0")}
@@ -118,7 +118,10 @@ export default function HomePage({ params }: { params: { locale: string } }) {
               <h3 className="font-display text-xl font-bold text-fg">
                 {feature.title}
               </h3>
-              <p className="leading-relaxed text-muted">{feature.body}</p>
+              {/* Full-width below the title on mobile; third column on md+. */}
+              <p className="col-span-2 leading-relaxed text-muted md:col-span-1 md:col-start-3 md:row-start-1">
+                {feature.body}
+              </p>
             </li>
           ))}
         </ul>
@@ -135,18 +138,18 @@ export default function HomePage({ params }: { params: { locale: string } }) {
             <li key={category.id}>
               <Link
                 href={localeHref(locale, `/components/${category.id}`)}
-                className="group flex items-center gap-5 border-b border-border py-5 transition-colors hover:bg-surface"
+                className="group flex items-center gap-3 border-b border-border py-5 transition-colors hover:bg-surface sm:gap-5"
               >
-                <span className="mono text-sm text-muted">
+                <span className="mono shrink-0 text-sm text-muted">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span aria-hidden="true" className="text-xl">
+                <span aria-hidden="true" className="shrink-0 text-xl">
                   {category.icon}
                 </span>
-                <span className="font-display text-lg font-bold text-fg md:text-xl">
+                <span className="min-w-0 flex-1 truncate font-display text-lg font-bold text-fg md:text-xl">
                   {category.title[locale]}
                 </span>
-                <span className="mono ml-auto text-sm text-muted">
+                <span className="mono shrink-0 text-sm text-muted">
                   {formatCount(
                     dict.gallery.itemsCount,
                     getComponentCount(category.id)
@@ -154,7 +157,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
                 </span>
                 <span
                   aria-hidden="true"
-                  className="text-muted transition-transform group-hover:translate-x-1 group-hover:text-fg"
+                  className="shrink-0 text-muted transition-transform group-hover:translate-x-1 group-hover:text-fg"
                 >
                   →
                 </span>
