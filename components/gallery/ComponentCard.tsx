@@ -21,7 +21,7 @@ export default function ComponentCard({
   const style = getStyle(entry.style);
 
   return (
-    <article className="flex flex-col border border-border bg-surface">
+    <article className="flex min-w-0 flex-col border border-border bg-surface">
       <div className="flex items-center justify-between gap-2 border-b border-border px-3 py-2">
         <span className="eyebrow truncate">
           {style ? style.title[locale] : entry.style}
@@ -39,7 +39,7 @@ export default function ComponentCard({
         title={entry.title[locale]}
       />
 
-      <div className="flex flex-1 flex-col gap-3 border-t border-border p-4">
+      <div className="flex min-w-0 flex-1 flex-col gap-3 border-t border-border p-4">
         <div>
           <h3 className="font-display text-base font-bold text-fg">
             {entry.title[locale]}
