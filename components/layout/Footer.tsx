@@ -24,58 +24,65 @@ export default function Footer({
   ];
 
   return (
-    <footer className="border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-content gap-8 px-4 py-12 sm:grid-cols-2 md:grid-cols-4">
-        <div className="sm:col-span-2">
-          <div className="flex items-center gap-2 text-lg font-bold text-fg">
-            <span aria-hidden="true">🎨</span>
-            <span>{dict.meta.siteName}</span>
+    <footer className="border-t border-border">
+      <div className="mx-auto max-w-content px-5 md:px-8">
+        <div className="grid gap-10 py-14 md:grid-cols-[1.5fr_1fr_1fr]">
+          <div>
+            <p className="eyebrow mb-4">{dict.meta.siteName}</p>
+            <p className="max-w-measure font-display text-2xl font-bold leading-snug tracking-tight text-fg">
+              {dict.footer.description}
+            </p>
           </div>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-            {dict.footer.description}
+
+          <nav aria-label={dict.footer.sections.explore}>
+            <h2 className="eyebrow mb-4">{dict.footer.sections.explore}</h2>
+            <ul className="space-y-2.5">
+              {explore.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-fg transition-opacity hover:opacity-60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label={dict.footer.sections.legal}>
+            <h2 className="eyebrow mb-4">{dict.footer.sections.legal}</h2>
+            <ul className="space-y-2.5">
+              {legal.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-fg transition-opacity hover:opacity-60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      {/* Oversized wordmark — an editorial sign-off. */}
+      <div className="overflow-hidden border-t border-border">
+        <div className="mx-auto max-w-content px-5 md:px-8">
+          <p className="select-none whitespace-nowrap py-6 font-display text-[14vw] font-bold leading-none tracking-tighter text-fg/10">
+            {dict.meta.siteName}
           </p>
-        </div>
-
-        <div>
-          <h2 className="text-sm font-semibold text-fg">
-            {dict.footer.sections.explore}
-          </h2>
-          <ul className="mt-3 space-y-2">
-            {explore.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-muted transition-colors hover:text-fg"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-sm font-semibold text-fg">
-            {dict.footer.sections.legal}
-          </h2>
-          <ul className="mt-3 space-y-2">
-            {legal.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-muted transition-colors hover:text-fg"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
       <div className="border-t border-border">
-        <div className="mx-auto max-w-content px-4 py-6 text-center text-sm text-muted">
-          © {year} {dict.meta.siteName}. {dict.footer.rights}
+        <div className="mx-auto flex max-w-content flex-wrap items-center justify-between gap-2 px-5 py-5 md:px-8">
+          <span className="eyebrow">
+            © {year} {dict.meta.siteName}
+          </span>
+          <span className="eyebrow">{dict.footer.rights}</span>
         </div>
       </div>
     </footer>

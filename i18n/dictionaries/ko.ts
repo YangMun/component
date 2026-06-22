@@ -56,6 +56,8 @@ const ko = {
     featuredTitle: "추천 컴포넌트",
     browseByCategory: "카테고리별로 보기",
     browseByStyle: "디자인 스타일별로 보기",
+    heroEyebrow: "디자인 컴포넌트 인덱스",
+    stats: { components: "컴포넌트", categories: "카테고리", styles: "스타일" },
   },
   gallery: {
     title: "컴포넌트",

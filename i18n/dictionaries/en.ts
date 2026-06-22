@@ -57,6 +57,8 @@ const en: Dictionary = {
     featuredTitle: "Featured components",
     browseByCategory: "Browse by category",
     browseByStyle: "Browse by design style",
+    heroEyebrow: "Design component index",
+    stats: { components: "Components", categories: "Categories", styles: "Styles" },
   },
   gallery: {
     title: "Components",

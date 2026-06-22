@@ -9,6 +9,7 @@ import { categories, getCategory } from "@/data/categories";
 import { getComponentsByCategory } from "@/data/components";
 import ComponentCard from "@/components/gallery/ComponentCard";
 import CategoryNav from "@/components/gallery/CategoryNav";
+import PageHeading from "@/components/ui/PageHeading";
 import JsonLd from "@/components/seo/JsonLd";
 
 // Pre-render a page for every category id (combined with each locale).
@@ -65,20 +66,17 @@ export default function CategoryPage({
   };
 
   return (
-    <div className="mx-auto max-w-content px-4 py-12">
+    <div className="mx-auto max-w-content px-5 py-12 md:px-8">
       <JsonLd data={breadcrumbJsonLd} />
 
-      <header className="mb-8">
-        <h1 className="flex items-center gap-2 text-3xl font-bold text-fg">
-          <span aria-hidden="true">{category.icon}</span>
-          {category.title[locale]}
-        </h1>
-        <p className="mt-2 max-w-2xl text-muted">
-          {category.description[locale]}
-        </p>
-      </header>
+      <PageHeading
+        eyebrow={formatCount(dict.gallery.itemsCount, items.length)}
+        icon={category.icon}
+        title={category.title[locale]}
+        description={category.description[locale]}
+      />
 
-      <div className="mb-10">
+      <div className="mb-10 mt-8">
         <CategoryNav locale={locale} dict={dict} activeId={category.id} />
       </div>
 
@@ -86,9 +84,6 @@ export default function CategoryPage({
         <p className="text-muted">{dict.gallery.empty}</p>
       ) : (
         <>
-          <p className="mb-6 text-sm text-muted">
-            {formatCount(dict.gallery.itemsCount, items.length)}
-          </p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((entry) => (
               <ComponentCard

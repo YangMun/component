@@ -1,6 +1,27 @@
 import type { Metadata, Viewport } from "next";
+import { Space_Grotesk, Inter, Space_Mono } from "next/font/google";
 import "../globals.css";
 import { locales, defaultLocale, isLocale, type Locale } from "@/i18n/config";
+
+// Editorial type system: a characterful grotesk for display, Inter for body,
+// and a monospace for eyebrows, labels and indices. Self-hosted at build time.
+const fontDisplay = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+const fontSans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+const fontMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
 import { getDictionary } from "@/i18n/dictionaries";
 import { siteUrl, absoluteUrl } from "@/lib/site";
 import { localeHref } from "@/lib/utils";
@@ -62,8 +83,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#020617" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f2ea" },
+    { media: "(prefers-color-scheme: dark)", color: "#14130f" },
   ],
 };
 
@@ -84,7 +105,11 @@ export default function LocaleLayout({
   const dict = getDictionary(locale);
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={`${fontDisplay.variable} ${fontSans.variable} ${fontMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script dangerouslySetInnerHTML={{ __html: swRegisterScript }} />

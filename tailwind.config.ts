@@ -22,11 +22,38 @@ const config: Config = {
         "brand-fg": "rgb(var(--brand-fg) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        sans: [
+          "var(--font-sans)",
+          "Pretendard",
+          "Apple SD Gothic Neo",
+          "Malgun Gothic",
+          "system-ui",
+          "sans-serif",
+        ],
+        display: [
+          "var(--font-display)",
+          "var(--font-sans)",
+          "Pretendard",
+          "Apple SD Gothic Neo",
+          "system-ui",
+          "sans-serif",
+        ],
+        mono: [
+          "var(--font-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace",
+        ],
+      },
+      fontSize: {
+        // Fluid editorial display sizes.
+        display: ["clamp(2.75rem, 8vw, 6rem)", { lineHeight: "1.0" }],
+        "display-sm": ["clamp(2rem, 5vw, 3.25rem)", { lineHeight: "1.05" }],
       },
       maxWidth: {
-        content: "72rem",
+        content: "78rem",
+        measure: "42rem",
       },
     },
   },

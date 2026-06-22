@@ -9,6 +9,7 @@ import { styles, getStyle } from "@/data/styles";
 import { getComponentsByStyle } from "@/data/components";
 import ComponentCard from "@/components/gallery/ComponentCard";
 import StyleNav from "@/components/gallery/StyleNav";
+import PageHeading from "@/components/ui/PageHeading";
 import JsonLd from "@/components/seo/JsonLd";
 
 // Pre-render a page for every style id (combined with each locale).
@@ -65,18 +66,17 @@ export default function StyleDetailPage({
   };
 
   return (
-    <div className="mx-auto max-w-content px-4 py-12">
+    <div className="mx-auto max-w-content px-5 py-12 md:px-8">
       <JsonLd data={breadcrumbJsonLd} />
 
-      <header className="mb-8">
-        <h1 className="flex items-center gap-2 text-3xl font-bold text-fg">
-          <span aria-hidden="true">{style.icon}</span>
-          {style.title[locale]}
-        </h1>
-        <p className="mt-2 max-w-2xl text-muted">{style.description[locale]}</p>
-      </header>
+      <PageHeading
+        eyebrow={formatCount(dict.gallery.itemsCount, items.length)}
+        icon={style.icon}
+        title={style.title[locale]}
+        description={style.description[locale]}
+      />
 
-      <div className="mb-10">
+      <div className="mb-10 mt-8">
         <StyleNav locale={locale} dict={dict} activeId={style.id} />
       </div>
 
@@ -84,9 +84,6 @@ export default function StyleDetailPage({
         <p className="text-muted">{dict.gallery.empty}</p>
       ) : (
         <>
-          <p className="mb-6 text-sm text-muted">
-            {formatCount(dict.gallery.itemsCount, items.length)}
-          </p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((entry) => (
               <ComponentCard

@@ -2,27 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens. Light theme by default; .dark overrides on <html>. */
+/* ============================================================
+   Editorial gallery — monochrome "ink + paper" design tokens.
+   The shell is intentionally neutral so the colorful component
+   previews read like artworks on a gallery wall.
+   Light = paper, dark (.dark on <html>) = ink.
+   ============================================================ */
 :root {
-  --bg: 248 250 252; /* slate-50 */
-  --surface: 255 255 255;
-  --border: 226 232 240; /* slate-200 */
-  --fg: 15 23 42; /* slate-900 */
-  --muted: 100 116 139; /* slate-500 */
-  --brand: 124 58 237; /* violet-600 */
-  --brand-fg: 255 255 255;
-  --font-sans: ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Pretendard",
-    "Malgun Gothic", sans-serif;
+  --bg: 244 242 234; /* warm paper #F4F2EA */
+  --surface: 251 250 246; /* near-white card */
+  --border: 224 219 206; /* warm hairline */
+  --fg: 22 20 15; /* ink */
+  --muted: 110 104 90; /* warm gray */
+  --brand: 22 20 15; /* monochrome accent = ink */
+  --brand-fg: 244 242 234; /* paper on ink */
 }
 
 .dark {
-  --bg: 2 6 23; /* slate-950 */
-  --surface: 15 23 42; /* slate-900 */
-  --border: 30 41 59; /* slate-800 */
-  --fg: 226 232 240; /* slate-200 */
-  --muted: 148 163 184; /* slate-400 */
-  --brand: 167 139 250; /* violet-400 */
-  --brand-fg: 15 23 42;
+  --bg: 20 19 15; /* ink #14130F */
+  --surface: 28 27 22; /* raised ink */
+  --border: 48 45 38; /* hairline */
+  --fg: 236 232 221; /* cream */
+  --muted: 156 150 136; /* warm gray */
+  --brand: 236 232 221; /* monochrome accent = cream */
+  --brand-fg: 20 19 15; /* ink on cream */
 }
 
 html {
@@ -32,19 +35,82 @@ html {
 body {
   background-color: rgb(var(--bg));
   color: rgb(var(--fg));
-  font-family: var(--font-sans);
+  font-family: var(--font-sans, ui-sans-serif), "Pretendard",
+    "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Respect users who prefer reduced motion. */
+/* Faint paper grain overlay — adds an analog, art-print texture. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Keep app content above the grain. */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: rgb(var(--fg));
+  color: rgb(var(--bg));
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 }
 
-/* Focus visibility for keyboard users. */
 :focus-visible {
-  outline: 2px solid rgb(var(--brand));
+  outline: 2px solid rgb(var(--fg));
   outline-offset: 2px;
+}
+
+@layer components {
+  /* Monospace, upper, wide-tracked label used for eyebrows & metadata. */
+  .eyebrow {
+    font-family: var(--font-mono, ui-monospace), monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    line-height: 1.2;
+    color: rgb(var(--muted));
+  }
+  .mono {
+    font-family: var(--font-mono, ui-monospace), monospace;
+  }
+  /* Big editorial display type. */
+  .display {
+    font-family: var(--font-display, var(--font-sans)), "Pretendard",
+      "Apple SD Gothic Neo", system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    font-weight: 700;
+  }
+  /* Marquee track animation (paused for reduced motion). */
+  .marquee-track {
+    animation: marquee 32s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
