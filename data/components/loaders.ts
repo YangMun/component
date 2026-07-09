@@ -349,6 +349,31 @@ const loaders: ComponentEntry[] = [
 .loader-aero span:nth-child(3) { animation-delay: 0.36s; }
 @keyframes lae-float { 0%, 100% { transform: translateY(0); opacity: 0.6; } 50% { transform: translateY(-14px); opacity: 1; } }`,
   },
+  {
+    id: "loaders-morphing-blob",
+    slug: "morphing-blob",
+    category: "loaders",
+    style: "motion",
+    title: { ko: "모핑 블롭", en: "Morphing Blob" },
+    description: {
+      ko: "테두리 반경이 끊임없이 변형되며 회전하는 유기적인 블롭 로더입니다.",
+      en: "An organic blob loader that endlessly morphs its border-radius while rotating.",
+    },
+    tags: ["motion", "animation", "blob", "morph", "loader"],
+    html: `<div class="loader-blob" role="status" aria-label="로딩 중"></div>`,
+    css: `.loader-blob {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  box-shadow: 0 12px 30px rgba(139,92,246,0.45);
+  animation: loader-blob-morph 3s ease-in-out infinite, loader-blob-spin 6s linear infinite;
+}
+@keyframes loader-blob-morph {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+  50% { border-radius: 66% 34% 38% 62% / 63% 58% 42% 37%; }
+}
+@keyframes loader-blob-spin { to { transform: rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) { .loader-blob { animation: loader-blob-morph 3s ease-in-out infinite; } }`,
+  },
 ];
 
 export default loaders;

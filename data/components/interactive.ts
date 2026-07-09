@@ -455,6 +455,198 @@ btn.addEventListener('click', () => {
   icon.textContent = dark ? '☀️' : '🌙';
 });`,
   },
+  {
+    id: "interactive-ripple-button",
+    slug: "ripple-button",
+    category: "interactive",
+    style: "motion",
+    title: { ko: "리플 버튼", en: "Ripple Button" },
+    description: {
+      ko: "클릭한 지점에서 물결이 퍼져 나가는 머티리얼 리플 애니메이션 버튼입니다.",
+      en: "A Material-style button where a ripple radiates from the exact click point.",
+    },
+    tags: ["motion", "animation", "ripple", "click"],
+    featured: true,
+    html: `<button class="mo-ripple" type="button">클릭하세요</button>`,
+    css: `.mo-ripple {
+  position: relative; overflow: hidden; padding: 14px 30px; border: none; border-radius: 12px;
+  font-size: 15px; font-weight: 600; color: #fff; background: #6d28d9; cursor: pointer;
+}
+.mo-ripple__r {
+  position: absolute; border-radius: 50%; transform: scale(0);
+  background: rgba(255,255,255,0.5); pointer-events: none; animation: mo-ripple 0.6s ease-out;
+}
+@keyframes mo-ripple { to { transform: scale(2.4); opacity: 0; } }`,
+    js: `const btn = document.querySelector('.mo-ripple');
+btn.addEventListener('click', (e) => {
+  const r = btn.getBoundingClientRect();
+  const d = Math.max(r.width, r.height);
+  const s = document.createElement('span');
+  s.className = 'mo-ripple__r';
+  s.style.width = s.style.height = d + 'px';
+  s.style.left = (e.clientX - r.left - d / 2) + 'px';
+  s.style.top = (e.clientY - r.top - d / 2) + 'px';
+  btn.appendChild(s);
+  s.addEventListener('animationend', () => s.remove());
+});`,
+  },
+  {
+    id: "interactive-tilt-card",
+    slug: "tilt-card",
+    category: "interactive",
+    style: "motion",
+    title: { ko: "3D 틸트 카드", en: "3D Tilt Card" },
+    description: {
+      ko: "커서 위치에 따라 원근감 있게 기울어지는 3D 틸트 카드입니다.",
+      en: "A card that tilts in 3D perspective as it follows the cursor position.",
+    },
+    tags: ["motion", "animation", "3d", "tilt", "hover"],
+    featured: true,
+    previewBackground: "#0f172a",
+    html: `<div class="mo-tilt">
+  <div class="mo-tilt__in"><span>3D TILT</span><small>마우스를 올려보세요</small></div>
+</div>`,
+    css: `.mo-tilt { perspective: 700px; }
+.mo-tilt__in {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  width: 200px; height: 130px; border-radius: 18px; color: #fff;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899); box-shadow: 0 18px 40px rgba(139,92,246,0.45);
+  transform-style: preserve-3d; transition: transform 0.1s ease;
+}
+.mo-tilt__in span { font-size: 20px; font-weight: 800; letter-spacing: 0.08em; }
+.mo-tilt__in small { font-size: 12px; opacity: 0.85; }`,
+    js: `const root = document.querySelector('.mo-tilt');
+const card = root.querySelector('.mo-tilt__in');
+root.addEventListener('mousemove', (e) => {
+  const r = root.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width - 0.5;
+  const y = (e.clientY - r.top) / r.height - 0.5;
+  card.style.transform = 'rotateY(' + x * 22 + 'deg) rotateX(' + (-y * 22) + 'deg)';
+});
+root.addEventListener('mouseleave', () => { card.style.transform = 'rotateY(0) rotateX(0)'; });`,
+  },
+  {
+    id: "interactive-menu-morph",
+    slug: "menu-morph",
+    category: "interactive",
+    style: "motion",
+    title: { ko: "메뉴 모프 버튼", en: "Menu Morph Button" },
+    description: {
+      ko: "클릭하면 햄버거 아이콘이 X 모양으로 부드럽게 변형되는 토글 버튼입니다.",
+      en: "A toggle where the hamburger icon smoothly morphs into an X on click.",
+    },
+    tags: ["motion", "animation", "menu", "morph", "toggle"],
+    html: `<button class="mo-menu" type="button" aria-label="메뉴 열기">
+  <span></span><span></span><span></span>
+</button>`,
+    css: `.mo-menu {
+  display: inline-flex; flex-direction: column; justify-content: center; gap: 6px;
+  width: 52px; height: 52px; padding: 0 12px; border: none; border-radius: 14px;
+  background: #0f172a; cursor: pointer;
+}
+.mo-menu span { display: block; height: 3px; border-radius: 3px; background: #fff;
+  transition: transform 0.3s ease, opacity 0.2s ease; }
+.mo-menu.on span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.mo-menu.on span:nth-child(2) { opacity: 0; }
+.mo-menu.on span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }`,
+    js: `const btn = document.querySelector('.mo-menu');
+btn.addEventListener('click', () => {
+  const open = btn.classList.toggle('on');
+  btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+});`,
+  },
+  {
+    id: "interactive-confetti-burst",
+    slug: "confetti-burst",
+    category: "interactive",
+    style: "motion",
+    title: { ko: "컨페티 버스트", en: "Confetti Burst" },
+    description: {
+      ko: "버튼을 누르면 색색의 조각이 사방으로 터지는 축하 애니메이션입니다.",
+      en: "A celebration animation that bursts colorful confetti in all directions on click.",
+    },
+    tags: ["motion", "animation", "confetti", "celebration", "click"],
+    html: `<button class="mo-confetti" type="button">🎉 축하하기</button>`,
+    css: `.mo-confetti {
+  position: relative; padding: 14px 28px; border: none; border-radius: 12px;
+  font-size: 15px; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, #f59e0b, #ef4444); cursor: pointer;
+}
+.mo-confetti__p {
+  position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; border-radius: 2px;
+  pointer-events: none; animation: mo-confetti-fly 0.9s ease-out forwards;
+}
+@keyframes mo-confetti-fly {
+  to { transform: translate(var(--x), var(--y)) rotate(360deg); opacity: 0; }
+}`,
+    js: `const btn = document.querySelector('.mo-confetti');
+const colors = ['#f59e0b', '#ef4444', '#8b5cf6', '#22d3ee', '#34d399'];
+btn.addEventListener('click', () => {
+  for (let i = 0; i < 24; i++) {
+    const p = document.createElement('span');
+    p.className = 'mo-confetti__p';
+    p.style.background = colors[i % colors.length];
+    const a = Math.random() * Math.PI * 2;
+    const dist = 40 + Math.random() * 60;
+    p.style.setProperty('--x', Math.cos(a) * dist + 'px');
+    p.style.setProperty('--y', Math.sin(a) * dist + 'px');
+    btn.appendChild(p);
+    p.addEventListener('animationend', () => p.remove());
+  }
+});`,
+  },
+  {
+    id: "interactive-spotlight-card",
+    slug: "spotlight-card",
+    category: "interactive",
+    style: "motion",
+    title: { ko: "스포트라이트 카드", en: "Spotlight Card" },
+    description: {
+      ko: "커서를 따라 은은한 빛이 비치는 스포트라이트 호버 카드입니다.",
+      en: "A hover card lit by a soft spotlight that tracks the cursor.",
+    },
+    tags: ["motion", "animation", "spotlight", "hover", "cursor"],
+    previewBackground: "#0a0a14",
+    html: `<div class="mo-spot"><span>SPOTLIGHT</span></div>`,
+    css: `.mo-spot {
+  position: relative; display: grid; place-items: center; overflow: hidden;
+  width: 220px; height: 130px; border-radius: 18px; border: 1px solid #1f2937;
+  background: #111827; color: #fff; font-size: 18px; font-weight: 800; letter-spacing: 0.1em;
+}
+.mo-spot::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), rgba(139,92,246,0.5), transparent 60%);
+}
+.mo-spot span { position: relative; z-index: 1; }`,
+    js: `const el = document.querySelector('.mo-spot');
+el.addEventListener('mousemove', (e) => {
+  const r = el.getBoundingClientRect();
+  el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+  el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+});`,
+  },
+  {
+    id: "interactive-gradient-flow-text",
+    slug: "gradient-flow-text",
+    category: "interactive",
+    style: "motion",
+    title: { ko: "그라데이션 플로우 텍스트", en: "Gradient Flow Text" },
+    description: {
+      ko: "색이 계속 흐르는 애니메이션 그라데이션 텍스트입니다(순수 CSS, 모션 감소 존중).",
+      en: "Animated gradient text whose colors keep flowing (pure CSS, respects reduced motion).",
+    },
+    tags: ["motion", "animation", "gradient", "text", "css-only"],
+    html: `<div class="mo-flow">Interactive Animation</div>`,
+    css: `.mo-flow {
+  font-size: 26px; font-weight: 900; letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #8b5cf6, #ec4899, #22d3ee, #8b5cf6);
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  animation: mo-flow 4s linear infinite;
+}
+@keyframes mo-flow { to { background-position: 300% 0; } }
+@media (prefers-reduced-motion: reduce) { .mo-flow { animation: none; } }`,
+  },
 ];
 
 export default interactive;

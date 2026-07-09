@@ -701,6 +701,63 @@ btn.addEventListener('click', (e) => {
 .btn-aero-glossy:hover { filter: brightness(1.08); }
 .btn-aero-glossy:active { transform: translateY(1px); }`,
   },
+  {
+    id: "buttons-shimmer",
+    slug: "shimmer",
+    category: "buttons",
+    style: "motion",
+    title: { ko: "시머 버튼", en: "Shimmer Button" },
+    description: {
+      ko: "표면 위로 빛줄기가 계속 스쳐 지나가는 시머 애니메이션 버튼입니다.",
+      en: "A button with a light streak that keeps sweeping across its surface.",
+    },
+    tags: ["motion", "animation", "shimmer", "shine"],
+    featured: true,
+    previewBackground: "#0f172a",
+    html: `<button class="btn-shimmer" type="button">Get Started</button>`,
+    css: `.btn-shimmer {
+  position: relative; overflow: hidden; padding: 14px 32px; border: none; border-radius: 12px;
+  font-size: 15px; font-weight: 700; color: #fff; cursor: pointer;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  box-shadow: 0 10px 26px rgba(79,70,229,0.45);
+}
+.btn-shimmer::after {
+  content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg); animation: btn-shimmer 2.2s ease-in-out infinite;
+}
+@keyframes btn-shimmer { 0% { left: -60%; } 60%, 100% { left: 130%; } }
+@media (prefers-reduced-motion: reduce) { .btn-shimmer::after { animation: none; } }`,
+  },
+  {
+    id: "buttons-gradient-border-spin",
+    slug: "gradient-border-spin",
+    category: "buttons",
+    style: "motion",
+    title: { ko: "회전 그라데이션 테두리", en: "Spinning Gradient Border" },
+    description: {
+      ko: "원뿔형 그라데이션 테두리가 끊임없이 회전하는 버튼입니다.",
+      en: "A button whose conic-gradient border spins continuously around it.",
+    },
+    tags: ["motion", "animation", "gradient", "border"],
+    previewBackground: "#0a0a14",
+    html: `<button class="btn-spin" type="button"><span>Subscribe</span></button>`,
+    css: `.btn-spin {
+  position: relative; padding: 0; border: none; border-radius: 14px; background: transparent;
+  cursor: pointer; isolation: isolate;
+}
+.btn-spin::before {
+  content: ""; position: absolute; inset: -2px; border-radius: 16px; z-index: -1;
+  background: conic-gradient(from 0deg, #8b5cf6, #ec4899, #22d3ee, #8b5cf6);
+  animation: btn-spin 3s linear infinite;
+}
+.btn-spin span {
+  display: block; padding: 13px 30px; border-radius: 12px; font-size: 15px; font-weight: 700;
+  color: #fff; background: #0f172a;
+}
+@keyframes btn-spin { to { transform: rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) { .btn-spin::before { animation: none; } }`,
+  },
 ];
 
 export default buttons;
