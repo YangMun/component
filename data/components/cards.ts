@@ -672,6 +672,51 @@ c.addEventListener('mouseleave', () => {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 2px 6px rgba(31,127,196,0.4);
 }`,
   },
+  {
+    id: "cards-flip",
+    slug: "flip",
+    category: "cards",
+    style: "motion",
+    title: { ko: "플립 카드", en: "Flip Card" },
+    description: {
+      ko: "호버하면 3D로 뒤집히며 뒷면이 나타나는 플립 카드입니다.",
+      en: "A card that flips in 3D on hover to reveal its back face.",
+    },
+    tags: ["motion", "animation", "flip", "3d", "hover"],
+    featured: true,
+    html: `<div class="card-flip">
+  <div class="card-flip__inner">
+    <div class="card-flip__face card-flip__front">
+      <span class="card-flip__emoji">🚀</span>
+      <strong>마우스를 올려보세요</strong>
+    </div>
+    <div class="card-flip__face card-flip__back">
+      <strong>안녕하세요!</strong>
+      <p>뒷면 콘텐츠가 여기에 표시됩니다.</p>
+    </div>
+  </div>
+</div>`,
+    css: `.card-flip { width: 210px; height: 140px; perspective: 900px; }
+.card-flip__inner {
+  position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.card-flip:hover .card-flip__inner { transform: rotateY(180deg); }
+.card-flip__face {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 8px; padding: 18px; border-radius: 18px; text-align: center;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.card-flip__front { color: #0f172a; background: #fff; box-shadow: 0 10px 26px rgba(15,23,42,0.14); }
+.card-flip__emoji { font-size: 30px; }
+.card-flip__front strong { font-size: 14px; }
+.card-flip__back {
+  color: #fff; background: linear-gradient(135deg, #8b5cf6, #ec4899); transform: rotateY(180deg);
+  box-shadow: 0 10px 26px rgba(139,92,246,0.4);
+}
+.card-flip__back strong { font-size: 17px; }
+.card-flip__back p { margin: 0; font-size: 13px; line-height: 1.5; opacity: 0.9; }`,
+  },
 ];
 
 export default cards;

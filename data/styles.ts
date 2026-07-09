@@ -193,6 +193,16 @@ export const styles: Style[] = [
       en: "Glossy sky-and-water surfaces with glassy highlights that revive the 2000s Web 2.0 vibe.",
     },
   },
+  {
+    id: "motion",
+    icon: "🎬",
+    accent: "#8b5cf6",
+    title: { ko: "인터랙티브 애니메이션", en: "Interactive Animation" },
+    description: {
+      ko: "호버·클릭·스크롤에 반응해 움직이는 모션 중심 스타일. CSS 키프레임과 자바스크립트로 생동감을 더합니다.",
+      en: "A motion-first style that moves in response to hover, click and scroll — brought to life with CSS keyframes and JavaScript.",
+    },
+  },
 ];
 
 export function getStyle(id: string): Style | undefined {
